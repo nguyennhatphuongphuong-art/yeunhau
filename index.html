@@ -13,9 +13,9 @@ body{display:flex;justify-content:center;min-height:100vh}
 #hud{padding:9px 10px 8px;background:#303148;color:#fff;border-bottom:3px solid #171724}
 .brand{font-weight:1000;font-size:19px}.meta{display:flex;justify-content:space-between;font-size:12px;font-weight:850;margin-top:2px}
 .stats{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;margin-top:7px}.stat{font-size:9px;background:#202131;border:2px solid #494b61;border-radius:8px;padding:4px}.bar{height:5px;background:#11111a;border-radius:5px;margin-top:3px}.bar i{height:100%;display:block;border-radius:5px}
-#world{position:relative;aspect-ratio:9/12;overflow:hidden;background:#d9c5aa}
+#world{position:relative;aspect-ratio:9/12;overflow:hidden;background:#d9c5aa;isolation:isolate}
 #scene{width:100%;height:100%;display:block;image-rendering:pixelated}
-.hot{position:absolute;border:0;background:transparent;z-index:4}.hot:active{filter:brightness(1.15)}
+.hot{position:absolute;border:0;background:transparent;z-index:4;touch-action:manipulation}.hot:active{filter:brightness(1.15)}
 #toast{display:none;position:absolute;top:9px;left:50%;transform:translateX(-50%);background:#292638;color:#fff;border:3px solid #777b90;border-radius:12px;padding:7px 10px;font-size:11px;font-weight:950;z-index:8;max-width:88%;text-align:center}
 #modal{display:none;position:absolute;inset:0;background:#12121dcc;align-items:flex-end;z-index:10}.sheet{width:100%;max-height:91%;overflow:auto;background:var(--paper);border:3px solid var(--ink);border-bottom:0;border-radius:18px 18px 0 0;padding:12px}
 .sheet h2{font-size:18px;margin:0 0 7px}.close{float:right;border:0;background:var(--ink);color:white;border-radius:8px;padding:5px 9px;font-weight:1000}
@@ -55,7 +55,31 @@ function top(){ $("time").textContent=`Ngày ${state.day} · ${String(state.h).p
 function toast(t){let e=$("toast");e.textContent=t;e.style.display="block";clearTimeout(window.toastT);window.toastT=setTimeout(()=>e.style.display="none",1800)}
 function save(){try{localStorage.setItem("yncvv3",JSON.stringify(state))}catch(e){}}
 function load(){try{let x=JSON.parse(localStorage.getItem("yncvv3"));if(x)Object.assign(state,x)}catch(e){}}
-function pic(ctx,file,x,y,w,h){let im=new Image();im.src=ASSETS[file];im.onload=()=>ctx.drawImage(im,x,y,w,h)}
+const IMAGE_CACHE={};
+function loadAsset(file){
+  return new Promise((resolve,reject)=>{
+    if(IMAGE_CACHE[file]) return resolve(IMAGE_CACHE[file]);
+    const im=new Image();
+    im.onload=()=>{IMAGE_CACHE[file]=im;resolve(im)};
+    im.onerror=()=>reject(new Error("Không tải được asset: "+file));
+    im.src=ASSETS[file];
+  });
+}
+async function preloadAssets(){
+  const files=[
+    "kitchen_lv1.svg","kitchen_lv2.svg","kitchen_lv3.svg",
+    "fridge.svg","tv_lv1.svg","tv_lv2.svg","tv_lv3.svg",
+    "sofa_lv1.svg","sofa_lv2.svg","sofa_lv3.svg",
+    "table.svg","plant.svg","washer.svg","bed.svg",
+    "boy_lv1.svg","boy_lv2.svg","boy_lv3.svg",
+    "girl_lv1.svg","girl_lv2.svg","girl_lv3.svg"
+  ];
+  await Promise.all(files.map(loadAsset));
+}
+function pic(ctx,file,x,y,w,h){
+  const im=IMAGE_CACHE[file];
+  if(im) ctx.drawImage(im,x,y,w,h);
+}
 function world(){
 let c=$("scene"),g=c.getContext("2d");g.imageSmoothingEnabled=false;g.fillStyle="#d9c5aa";g.fillRect(0,0,360,480);
 g.fillStyle="#c7aa89";g.fillRect(0,83,360,397);
@@ -108,7 +132,25 @@ function progress(){open(`<button class="close" onclick="close()">×</button><h2
 function status(){open(`<button class="close" onclick="close()">×</button><h2>15. 📊 Thanh trạng thái</h2><p>❤️ Tình yêu <b>${state.love}</b></p><div class="meter"><i style="width:${state.love}%"></i></div><p>🤝 Tin tưởng <b>${state.trust}</b></p><div class="meter"><i style="width:${state.trust}%"></i></div><p>😤 Giận / Căng thẳng <b>${state.anger}</b></p><div class="meter"><i style="width:${state.anger}%"></i></div><p>💰 Tài chính <b>${state.finance}</b></p><div class="meter"><i style="width:${state.finance}%"></i></div><p>🏠 Hạnh phúc <b>${state.happy}</b></p><div class="meter"><i style="width:${state.happy}%"></i></div><div class="event"><b>Ảnh hưởng lẫn nhau</b><p>Có tiền nhưng ít thời gian → tình yêu giảm.</p><p>Hẹn hò nhiều nhưng tiêu quá mức → tài chính giảm.</p><p>Làm việc nhà → giận giảm, hạnh phúc tăng.</p><p>Drama nhiều → sự kiện khó hơn.</p></div>`)}
 function nextDay(){state.day++;state.h=7;state.m=30;state.energy=100;state.today=[];state.anger=clamp(state.anger-6);state.happy=clamp(state.happy+2);if(state.day>7){state.day=1;state.money+=12000000;toast("💰 Lương tháng +12.000.000đ")}else toast("🌅 Ngày mới bắt đầu");top();world();save()}
 document.querySelectorAll("nav button").forEach(b=>b.onclick=()=>{document.querySelectorAll("nav button").forEach(x=>x.classList.remove("active"));b.classList.add("active");let t=b.dataset.tab;if(t==="home"){world();hotspots()}if(t==="phone")phone();if(t==="work")work();if(t==="date")date();if(t==="shop")shop()});
-load();top();world();hotspots();
-setTimeout(()=>toast("1. 🏠 Nhà — chạm trực tiếp vào đồ vật để chơi"),800);
+async function boot(){
+  load(); top();
+  const worldEl=document.getElementById("world");
+  const loading=document.createElement("div");
+  loading.id="loading";
+  loading.style.cssText="position:absolute;inset:0;z-index:7;background:#d9c5aa;display:flex;align-items:center;justify-content:center;color:#292638;font-weight:1000;font-size:15px;text-align:center;padding:30px";
+  loading.innerHTML="ĐANG TẢI CĂN NHÀ PIXEL-ART...<br><span style='font-size:11px'>Đang dựng môi trường và đồ vật</span>";
+  worldEl.appendChild(loading);
+  try{
+    await preloadAssets();
+    world();
+    hotspots();
+    loading.remove();
+    toast("1. 🏠 Nhà đã sẵn sàng — chạm trực tiếp vào đồ vật");
+  }catch(err){
+    loading.innerHTML="LỖI TẢI ASSET<br><span style='font-size:11px'>Hãy tải lại trang.</span>";
+    console.error(err);
+  }
+}
+boot();
 </script>
 </body></html>
