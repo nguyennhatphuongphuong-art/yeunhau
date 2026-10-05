@@ -67,13 +67,13 @@
 <defs><filter id="none"><feComponentTransfer/></filter></defs>
 <style>.o{stroke:#272638;stroke-width:4;stroke-linejoin:miter;stroke-linecap:square}</style>
 <rect x="35" y="8" width="58" height="54" fill="#272638" class="o"/><rect x="41" y="14" width="46" height="41" fill="#f2b99d"/><rect x="36" y="9" width="56" height="20" fill="#4b2e33"/><rect x="31" y="17" width="13" height="30" fill="#4b2e33"/><rect x="85" y="15" width="13" height="35" fill="#4b2e33"/><rect x="49" y="36" width="7" height="7" fill="#272638"/><rect x="69" y="36" width="7" height="7" fill="#272638"/><rect x="57" y="46" width="18" height="5" fill="#d86f79"/><rect x="27" y="57" width="74" height="45" fill="#272638" class="o"/><rect x="34" y="61" width="60" height="34" fill="#e17fa1"/><rect x="17" y="63" width="17" height="31" fill="#f2b99d"/><rect x="94" y="63" width="17" height="31" fill="#f2b99d"/><rect x="34" y="92" width="22" height="27" fill="#e8a2b8" class="o"/><rect x="72" y="92" width="22" height="27" fill="#e8a2b8" class="o"/><rect x="29" y="95" width="12" height="24" fill="#292638"/><rect x="87" y="95" width="12" height="24" fill="#292638"/>
-</svg></div></div><div id="sceneLayer"><div class="sceneTop"><span class="sceneTitle" id="sceneTitle"></span><button class="sceneBack" onclick="returnHomeScene()">🏠 Về nhà</button></div><div id="sceneContent"></div></div><div class="tv-screen" style="position:absolute;left:68%;top:18%;z-index:6;font-size:20px;display:none">📺</div><div id="pet" onclick="petMenu()"><div class="petBody"></div><div class="petHead"><span class="petEar1"></span><span class="petEar2"></span><span class="petEye"></span></div><div class="petLeg pl1"></div><div class="petLeg pl2"></div><div class="petTail"></div></div><div id="hotspots"></div><div id="toast"></div><div id="modal"><div class="sheet" id="sheet"></div></div></main><nav><button class="active" data-tab="home">🏠<br>Nhà</button><button data-tab="phone">📱<br>Điện thoại</button><button data-tab="work">💼<br>Đi làm</button><button data-tab="date">❤️<br>Hẹn hò</button><button data-tab="shop">🛒<br>Nâng cấp</button></nav></div><script>
+</svg></div></div><div id="sceneLayer"><div class="sceneTop"><span class="sceneTitle" id="sceneTitle"></span><button class="sceneBack" onclick="returnHomeScene()">🏠 Về nhà</button></div><div id="sceneContent"></div></div><div class="tv-screen" style="position:absolute;left:68%;top:18%;z-index:6;font-size:20px;display:none">📺</div><div id="pet" onclick="petMenu()"><div class="petBody"></div><div class="petHead"><span class="petEar1"></span><span class="petEar2"></span><span class="petEye"></span></div><div class="petLeg pl1"></div><div class="petLeg pl2"></div><div class="petTail"></div></div><div id="hotspots"></div><div id="toast"></div><div id="modal"><div class="sheet" id="sheet"></div></div></main><nav><button class="active" data-tab="home">🏠<br>Nhà</button><button data-tab="phone">📱<br>Điện thoại</button><button data-tab="work">💼<br>Đi làm</button><button data-tab="date">❤️<br>Hẹn hò</button><button data-tab="shop">🛒<br>Cửa hàng</button></nav></div><script>
 const S={
  day:2,h:18,m:35,money:3200000,love:78,trust:74,anger:12,finance:61,happy:84,energy:76,
  upgrades:{sofa:1,tv:1,kitchen:1,fridge:1,bed:1},
  chores:{dish:false,laundry:false,trash:false,floor:false},
  work:{email:0,report:0,meeting:0},
- chatIndex:0, socialIndex:0, lastRoutine:-1, player:'boy', partner:'girl', inventory:{rice:2,veg:2,fish:1,meat:1,shrimp:1,egg:6,noodle:4}, fridgeOpen:false, pet:{type:'cat',name:'Miu',hunger:72,happy:78,clean:84,energy:88}, unread:0, inbox:{love:[],best:[],friend:[],family:[],coworker:[]}, messageSeq:0, cooking:null, scene:'home', clean:100, playerGenderChosen:true
+ chatIndex:0, socialIndex:0, lastRoutine:-1, player:'boy', partner:'girl', inventory:{rice:2,veg:2,fish:1,meat:1,shrimp:1,egg:6,noodle:4}, fridgeOpen:false, pet:{type:'cat',name:'Miu',hunger:72,happy:78,clean:84,energy:88}, unread:0, inbox:{love:[],best:[],friend:[],family:[],coworker:[]}, messageSeq:0, cooking:null, scene:'home', clean:100, playerGenderChosen:true, busy:false
 };
 const $=id=>document.getElementById(id);
 const clamp=(n,a=0,b=100)=>Math.max(a,Math.min(b,n));
@@ -141,13 +141,17 @@ function setScene(type,title,html,cls=''){
 function say(text,who='girl',ms=2200){const e=$('speech');e.textContent=text;e.style.display='block';const c=$(who);if(c){e.style.left=(parseFloat(c.style.left)||50)+8+'%';e.style.top=Math.max(4,(parseFloat(c.style.top)||50)-8)+'%';c.classList.add('talking');setTimeout(()=>c.classList.remove('talking'),ms)}clearTimeout(window.speechTimer);window.speechTimer=setTimeout(()=>e.style.display='none',ms)}
 function fx(emoji,x=50,y=45){const f=document.createElement('div');f.className='fx';f.textContent=emoji;f.style.left=x+'%';f.style.top=y+'%';$('roomFX').appendChild(f);setTimeout(()=>f.remove(),950)}
 async function routine(scene='idle'){
- if(S.scene!=='home')return;
- if(scene==='cook'){await moveNPC('boy',34,47,'Để anh lấy đồ!');await moveNPC('girl',23,49,'Em nấu nhé 😋')}
- else if(scene==='tv'){await moveNPC('boy',39,55,'Bật TV nha.');await moveNPC('girl',57,57,'Ngồi sát vào!');tvOn()}
- else if(scene==='table'){await moveNPC('boy',43,67,'Đói quá...');await moveNPC('girl',61,68,'Chờ em!')}
- else if(scene==='bed'){await moveNPC('boy',14,78,'Ngủ thôi...');await moveNPC('girl',19,80,'Ngủ ngon ❤️')}
- else if(scene==='fight'){await moveNPC('girl',65,51,'Anh giải thích đi! 😤');await moveNPC('boy',33,51,'Khoan... khoan...')}
+ if(S.scene!=='home'||S.busy)return;
+ S.busy=true;
+ try{
+  if(scene==='cook'){await moveNPC('boy',34,47,'Để anh lấy đồ!');await moveNPC('girl',23,49,'Em nấu nhé 😋')}
+  else if(scene==='tv'){await moveNPC('boy',39,55,'Bật TV nha.');await moveNPC('girl',57,57,'Ngồi sát vào!');tvOn()}
+  else if(scene==='table'){await moveNPC('boy',43,67,'Đói quá...');await moveNPC('girl',61,68,'Chờ em!')}
+  else if(scene==='bed'){await moveNPC('boy',14,78,'Ngủ thôi...');await moveNPC('girl',19,80,'Ngủ ngon ❤️')}
+  else if(scene==='fight'){await moveNPC('girl',65,51,'Anh giải thích đi! 😤');await moveNPC('boy',33,51,'Khoan... khoan...')}
+ }finally{S.busy=false}
 }
+
 function hit(x,y,w,h,fn){let b=document.createElement('button');b.className='hot';b.style.cssText=`left:${x/360*100}%;top:${y/480*100}%;width:${w/360*100}%;height:${h/480*100}%`;b.onclick=fn;$('hotspots').appendChild(b)}
 function tvOn(){let t=document.querySelector('.tv-screen');if(t){t.textContent='📺';t.style.display='block';t.style.animation='tvf .35s steps(2,end) infinite'}}
 function init(){
@@ -163,32 +167,78 @@ function init(){
  homeSchedule();
 }
 function fridge(){
- show(`<h2>🧊 Tủ lạnh</h2><p>Thực phẩm còn lại:</p><div class="cards">${[['rice','🍚 Gạo'],['veg','🥬 Rau'],['fish','🐟 Cá'],['meat','🥩 Thịt'],['shrimp','🦐 Tôm'],['egg','🥚 Trứng'],['noodle','🍜 Mì']].map(x=>`<div class="card">${x[1]}<br><b>${S.inventory[x[0]]}</b></div>`).join('')}</div><button class="btn gold" onclick="grocery()">🛒 Đi chợ</button><button class="btn" onclick="cook()">🍳 Chọn món nấu</button>`)
+  const items=[['rice','🍚 Gạo'],['veg','🥬 Rau'],['fish','🐟 Cá'],['meat','🥩 Thịt'],['shrimp','🦐 Tôm'],['egg','🥚 Trứng'],['noodle','🍜 Mì']];
+  show(`<h2>🧊 Tủ lạnh</h2><p>Đây chỉ là <b>kho thực phẩm</b>. Muốn mua thêm, vào <b>🛒 Cửa hàng</b> ở thanh dưới.</p><div class="cards">${items.map(x=>`<div class="card">${x[1]}<br><b>${S.inventory[x[0]]}</b> phần</div>`).join('')}</div>${btn('🍳 Nấu ăn','cook()','pink')}${btn('🛒 Mở Cửa hàng','closeModal();shop()','gold')}`)
 }
-function grocery(){
- setScene('market','🛒 ĐI CHỢ',`<div class="marketScene"><div class="stall stall1"></div><div class="stall stall2"></div><div class="stall stall3"></div><div class="marketItem mi1">🥬 🥩</div><div class="marketItem mi2">🐟 🦐</div><div class="marketItem mi3">🥚 🍜</div><div class="marketNPC" id="marketGuy">🧑‍🌾</div></div>`);show(`<h2>🛒 Đi chợ</h2><p>Đồ mua sẽ xuất hiện ngay trong tủ lạnh.</p><div class="cards">${[['rice','🍚 Gạo',30000],['veg','🥬 Rau',25000],['fish','🐟 Cá',70000],['meat','🥩 Thịt',90000],['shrimp','🦐 Tôm',110000],['egg','🥚 Trứng',30000],['noodle','🍜 Mì',15000]].map(x=>`<div class="card"><b>${x[1]}</b><br>${fmt(x[2])}<button class="btn pink" onclick="buyFood('${x[0]}',${x[2]})">Mua</button></div>`).join('')}</div>`)
-}
-function buyFood(k,cost){if(S.money<cost)return toast('Không đủ tiền 😅');S.money-=cost;S.inventory[k]++;hud();toast('🧊 Đã cất vào tủ lạnh');}
+function grocery(){shop()}
+
+const recipes=[
+ {name:'🍜 Mì trứng rau',need:{noodle:1,egg:1,veg:1},steps:[['🔥 Bật bếp — làm nóng',15],['💧 Đun nước sôi',10],['🍜 Pha mì',5],['🍽️ Bê ra bàn',5]]},
+ {name:'🍳 Trứng rau',need:{egg:2,veg:1},steps:[['🔥 Bật bếp — làm nóng',8],['🍳 Chiên trứng',8],['🥬 Cho rau',5],['🍽️ Bê ra bàn',5]]}
+];
+function recipeText(r){return Object.entries(r.need).map(([k,n])=>{const names={rice:'🍚 Gạo',veg:'🥬 Rau',fish:'🐟 Cá',meat:'🥩 Thịt',shrimp:'🦐 Tôm',egg:'🥚 Trứng',noodle:'🍜 Mì'};return `${names[k]} ${S.inventory[k]}/${n}`}).join(' · ')}
 function cook(){
- if(S.scene!=='home')returnHomeScene();routine('cook');
- const recipes=[{name:'🍜 Mì',need:{noodle:1,egg:1,veg:1},steps:[['🔥 Bật bếp — làm nóng',15],['💧 Đun nước sôi',10],['🍜 Pha mì',5],['🍽️ Bê ra bàn',5]]},{name:'🍳 Trứng rau',need:{egg:2,veg:1},steps:[['🔥 Bật bếp — làm nóng',15],['🍳 Chiên trứng',8],['🥬 Cho rau',5],['🍽️ Bê ra bàn',5]]}];
- const r=recipes[Math.floor(Math.random()*recipes.length)];for(const k in r.need){if(S.inventory[k]<r.need[k])return fridge()}
- for(const k in r.need)S.inventory[k]-=r.need[k];
- S.cooking={recipe:r,step:0,remain:r.steps[0][1],deadline:0};
- renderCookStep();
+  if(S.scene!=='home')returnHomeScene();
+  if(S.cooking)return toast('🍳 Món đang được nấu, làm xong món này trước nhé');
+  show(`<h2>🍳 Chọn món nấu</h2><p class="card">Chọn món trước. <b>Nguyên liệu chỉ bị trừ khi bạn bắt đầu nấu</b>.</p><div class="cards">${recipes.map((r,i)=>`<div class="card"><b>${r.name}</b><p>${recipeText(r)}</p><button class="btn pink" onclick="startCooking(${i})">${Object.entries(r.need).every(([k,n])=>S.inventory[k]>=n)?'🍳 Nấu món này':'🔒 Thiếu nguyên liệu'}</button></div>`).join('')}</div>${btn('🧊 Xem tủ lạnh','fridge()','choice')}`)
 }
-function renderCookStep(){const c=S.cooking;if(!c)return;const step=c.recipe.steps[c.step];show(`<h2>🍳 ${c.recipe.name}</h2><p><b>${step[0]}</b></p><div class="taskbar"><i id="cookbar" style="width:100%"></i></div><p>Còn <b id="cooktime">${step[1]}</b> giây</p><p class="card">NPC có thể tự đi lại trong lúc bếp đang hoạt động.</p><button class="btn pink" id="cookWait">⏳ Bắt đầu bước</button>`);$('cookWait').onclick=()=>runCookTimer()}
-function runCookTimer(){const c=S.cooking;if(!c)return;const step=c.recipe.steps[c.step];let remain=step[1];$('cookWait').disabled=true;const iv=setInterval(()=>{remain--;if($('cooktime'))$('cooktime').textContent=remain;if($('cookbar'))$('cookbar').style.width=(remain/step[1]*100)+'%';if(remain<=0){clearInterval(iv);finishCookStep()}},1000)}
-async function finishCookStep(){const c=S.cooking;c.step++;if(c.step>=c.recipe.steps.length){S.cooking=null;effect('love',4);effect('happy',4);effect('trust',2);changeTime(1);hud();routine('table');show(`<h2>🍽️ Món ăn đã được bê ra bàn</h2><div class="card">Hai người ăn tối cùng nhau. Không nhận tiền — đây là bữa cơm của nhà mình ❤️</div>${btn('🥢 Ăn cùng nhau','eatMeal()')}`);return}if(c.step===c.recipe.steps.length-1){c.deadline=5;show(`<h2>🍽️ ${c.recipe.name} đã chín!</h2><p class="card">Nhanh tay bê ra bàn trong <b id="serveSec">5</b>s. Không bê kịp → cháy món → cháy nhà.</p><button class="btn pink" onclick="serveMeal()">🍽️ Bê ra bàn ngay</button>`);let n=5;const sv=setInterval(()=>{n--;if($('serveSec'))$('serveSec').textContent=n;if(n<=0){clearInterval(sv);if(S.cooking)fireReset()}},1000);return}renderCookStep();}
-function serveMeal(){if(!S.cooking)return;S.cooking=null;effect('love',4);effect('happy',4);effect('trust',2);changeTime(1);hud();routine('table');show(`<h2>🍽️ Đã bê món ra bàn</h2><div class="card">Bữa cơm gia đình hoàn thành. Không nhận tiền — đây là đồ ăn cho hai người ❤️</div>${btn('🥢 Ăn cùng nhau','eatMeal()')}`)}
-function eatMeal(){if(S.scene!=='home')returnHomeScene();effect('love',3);effect('happy',5);effect('anger',-2);changeTime(20);hud();toast('🍜 Bữa tối ngon lành ❤️');routine('table')}
-function fireReset(){alert('🔥 Cháy nhà! Hai người phải bắt đầu lại từ đầu.');location.reload()}
+async function startCooking(i){
+  const r=recipes[i];
+  for(const k in r.need){if((S.inventory[k]||0)<r.need[k])return toast('🧊 Thiếu nguyên liệu — vào Cửa hàng để mua thêm');}
+  if(S.busy)return toast('⏳ Hai người đang bận, chờ một chút');
+  closeModal();
+  S.busy=true;
+  try{await moveNPC('boy',34,47,'Để anh lấy đồ!');await moveNPC('girl',23,49,'Em nấu nhé 😋');}
+  finally{S.busy=false}
+  for(const k in r.need)S.inventory[k]-=r.need[k];
+  S.cooking={recipe:r,step:0,remain:r.steps[0][1],deadline:0,timer:null,serveTimer:null};
+  renderCookStep();
+}
+function renderCookStep(){
+  const c=S.cooking;if(!c)return;
+  const step=c.recipe.steps[c.step];
+  show(`<h2>🍳 ${c.recipe.name}</h2><p><b>Bước ${c.step+1}/${c.recipe.steps.length}: ${step[0]}</b></p><div class="taskbar"><i id="cookbar" style="width:100%"></i></div><p>Còn <b id="cooktime">${step[1]}</b> giây</p><p class="card">Nguyên liệu đã được lấy từ tủ lạnh. Không thể mua thực phẩm trong màn này — muốn mua, hãy vào <b>🛒 Cửa hàng</b>.</p><button class="btn pink" id="cookWait">🔥 Bắt đầu bước</button>`);
+  $('cookWait').onclick=()=>runCookTimer();
+}
+function runCookTimer(){
+  const c=S.cooking;if(!c||c.timer)return;
+  const step=c.recipe.steps[c.step];let remain=step[1];
+  const b=$('cookWait');if(b){b.disabled=true;b.textContent='⏳ Đang thực hiện...'}
+  c.timer=setInterval(()=>{
+    remain--;if($('cooktime'))$('cooktime').textContent=remain;if($('cookbar'))$('cookbar').style.width=(remain/step[1]*100)+'%';
+    if(remain<=0){clearInterval(c.timer);c.timer=null;finishCookStep()}
+  },1000);
+}
+async function finishCookStep(){
+  const c=S.cooking;if(!c)return;
+  c.step++;
+  if(c.step>=c.recipe.steps.length){
+    S.cooking=null;effect('love',4);effect('happy',4);effect('trust',2);changeTime(1);hud();
+    await routine('table');
+    show(`<h2>🍽️ Món ăn đã được bê ra bàn</h2><div class="card">Hai người ăn tối cùng nhau. Không nhận tiền — đây là bữa cơm của nhà mình ❤️</div>${btn('🥢 Ăn cùng nhau','eatMeal()')}`);return;
+  }
+  if(c.step===c.recipe.steps.length-1){
+    c.deadline=5;
+    show(`<h2>🍽️ ${c.recipe.name} đã chín!</h2><p class="card">Món đã chín. Bấm <b>Bê ra bàn</b> để hoàn tất. Nếu chưa muốn bê, bạn vẫn có thể thao tác trong 5 giây.</p><button class="btn pink" id="serveBtn" onclick="serveMeal()">🍽️ Bê ra bàn ngay</button>`);
+    let n=5;c.serveTimer=setInterval(()=>{n--;if($('serveBtn'))$('serveBtn').textContent=`🍽️ Bê ra bàn ngay (${n}s)`;if(n<=0){clearInterval(c.serveTimer);c.serveTimer=null;if(S.cooking)fireReset()}},1000);return;
+  }
+  renderCookStep();
+}
+async function serveMeal(){
+  const c=S.cooking;if(!c)return;
+  if(c.serveTimer){clearInterval(c.serveTimer);c.serveTimer=null}
+  S.cooking=null;effect('love',4);effect('happy',4);effect('trust',2);changeTime(1);hud();
+  await routine('table');
+  show(`<h2>🍽️ Đã bê món ra bàn</h2><div class="card">Bữa cơm gia đình hoàn thành. Không nhận tiền — đây là đồ ăn cho hai người ❤️</div>${btn('🥢 Ăn cùng nhau','eatMeal()')}`)
+}
+async function eatMeal(){if(S.scene!=='home')returnHomeScene();effect('love',3);effect('happy',5);effect('anger',-2);changeTime(20);hud();toast('🍜 Bữa tối ngon lành ❤️');await routine('table')}
+function fireReset(){if(S.cooking){if(S.cooking.timer)clearInterval(S.cooking.timer);if(S.cooking.serveTimer)clearInterval(S.cooking.serveTimer);S.cooking=null}effect('anger',5);effect('happy',-3);hud();toast('😅 Món nguội mất rồi — không cháy nhà đâu!');setTimeout(()=>fridge(),250)}
 function chores(){const list=[['dish','🍽️ Rửa bát','girl'],['laundry','👕 Giặt quần áo','boy'],['trash','🗑️ Đổ rác','girl'],['floor','🧹 Lau nhà','boy']];show('<h2>6. 🧹 Việc nhà</h2><p>NPC sẽ thật sự đi tới vị trí và làm việc.</p>'+list.map(([k,x,w])=>`<button class="choice" onclick="doChore('${k}','${w}')">${S.chores[k]?'☑️':'☐'} ${x}</button>`).join('')+'<p class="card">Độ sạch nhà: '+S.clean+'%</p>')}
 async function doChore(k,who){if(S.chores[k])return;closeModal();if(S.scene!=='home')returnHomeScene();const pos={dish:[68,61],laundry:[78,75],trash:[15,62],floor:[55,72]}[k];await moveNPC(who,pos[0],pos[1]);say(k==='dish'?'Rửa bát xong!':k==='laundry'?'Máy giặt chạy rồi!':k==='trash'?'Đổ rác rồi 😎':'Lau nhà mỏi cả lưng 😂',who);S.chores[k]=true;S.clean=clamp(S.clean+5);effect('happy',2);effect('anger',-2);changeTime(8);hud();chores()}
 function live(){homeSchedule();show(`<h2>11. 👫 Hai người cùng sống</h2><p>${(S.h>=18?'18:10':'Trong ngày')} — Hai người ở nhà.</p><div class="cards"><button class="choice" onclick="cook()">🍳 Nấu ăn</button><button class="choice" onclick="eatMeal()">🍚 Ăn tối</button><button class="choice" onclick="routine('tv');toast('📺 Cả hai ngồi sofa xem TV')">📺 Xem TV</button><button class="choice" onclick="coupleTalk()">💬 Tâm sự</button></div>`)}
 function coupleTalk(){effect('love',5);effect('trust',4);effect('happy',4);hud();say('Hôm nay của anh/em thế nào?',S.partner);toast('💬 Hai người nói chuyện với nhau')}
 const contacts={love:{name:'❤️ Người yêu',avatar:'👩',messages:[['Em: Anh đang làm gì đấy?','Anh: Anh đang ở nhà nè.'],['Em: Sao rep lâu thế? Ai vừa nhắn cho anh vậy? 😤','Anh: Không có ai đâu 😅'],['Em: Tối nay có nấu gì cho em không?','Anh: Có chứ ❤️']]},best:{name:'🧑 Bạn thân',avatar:'🧑',messages:[['Bạn: Tối nay đá bóng không?','Anh: Để xem lịch đã.'],['Bạn: Ông có người yêu rồi quên anh em à 😂','Anh: Không quên!']]},friend:{name:'👩 Bạn khác giới',avatar:'👩',messages:[['Bạn: Mai đi cà phê không?','Anh: Để tôi xem đã.'],['Bạn: Nhớ mang laptop nhé.','Anh: Ok.']]},family:{name:'👪 Gia đình',avatar:'👪',messages:[['Mẹ: Cuối tuần về ăn cơm nhé.','Con: Dạ.'],['Mẹ: Nhớ gọi cho mẹ.','Con: Vâng ạ.']]},coworker:{name:'💼 Đồng nghiệp',avatar:'🧑‍💼',messages:[['Đồng nghiệp: Mai họp 8h nhé.','Ok.'],['Đồng nghiệp: Gửi giúp file nhé.','Được.']]}};
-function phone(){show(`<h2>2. 📱 Điện thoại</h2><p>Tin nhắn đến bất chợt. Có nhiều người nhắn, không chỉ người yêu.</p><div class="cards"><button class="choice" onclick="inbox()">💬 Tin nhắn ${S.unread?'<span class="notif">'+S.unread+'</span>':''}</button><button class="choice" onclick="social()">📸 MXH</button><button class="choice" onclick="grocery()">🛒 Đi chợ</button><button class="choice" onclick="petMenu()">🐾 Thú cưng</button><button class="choice" onclick="finance()">🏦 Ngân hàng</button><button class="choice" onclick="status()">📊 Trạng thái</button><button class="choice" onclick="characterMenu()">👤 Nhân vật</button></div>`)}
+function phone(){show(`<h2>2. 📱 Điện thoại</h2><p>Tin nhắn đến bất chợt. Có nhiều người nhắn, không chỉ người yêu.</p><div class="cards"><button class="choice" onclick="inbox()">💬 Tin nhắn ${S.unread?'<span class="notif">'+S.unread+'</span>':''}</button><button class="choice" onclick="social()">📸 MXH</button><button class="choice" onclick="petMenu()">🐾 Thú cưng</button><button class="choice" onclick="finance()">🏦 Ngân hàng</button><button class="choice" onclick="status()">📊 Trạng thái</button><button class="choice" onclick="characterMenu()">👤 Nhân vật</button></div>`)}
 function inbox(){show(`<h2>3. 💬 Tin nhắn</h2>${Object.entries(contacts).map(([k,c])=>`<button class="choice" onclick="chat('${k}')">${c.avatar} <b>${c.name}</b>${S.inbox[k].length?'<span class="notif" style="float:right">'+S.inbox[k].length+'</span>':''}</button>`).join('')}`)}
 function chat(k){const c=contacts[k];const arr=S.inbox[k];let text=c.messages[S.messageSeq%c.messages.length];if(arr.length)text=arr.shift();S.unread=Math.max(0,S.unread-1);show(`<h2>${c.avatar} ${c.name}</h2><div class="chat"><div class="bubble">${text[0]}</div><div class="bubble me">${text[1]}</div></div><div style="display:flex;gap:6px;margin-top:8px"><input id="chatInput" maxlength="120" placeholder="Nhập tin nhắn..." style="flex:1;padding:11px;border:2px solid #dac4a4;border-radius:10px;font-size:13px"><button class="btn pink" style="width:90px;margin-top:0" onclick="sendMessage('${k}')">Gửi</button></div>${k==='love'?`<p><b>Phản hồi nhanh:</b></p>${btn('❤️ Anh chỉ nói chuyện với em.','replyLove("good")','choice')}${btn('😅 Bạn thôi mà.','replyLove("soft")','choice')}${btn('🙄 Đang bận, lát nói.','replyLove("bad")','choice')}`:''}${btn('⬅️ Danh sách','inbox()')}`)}
 function sendMessage(k){const input=$('chatInput');const text=(input?.value||'').trim();if(!text)return toast('Viết gì đó trước đã 😅');if(k==='love'){const low=text.toLowerCase();if(/(cà phê|caphe|đi chơi|tối nay)/.test(low)){effect('anger',4);effect('trust',-1)}else if(/(yêu|nhớ|thương|ăn chưa|nấu|về chưa)/.test(low)){effect('love',3);effect('trust',2);effect('anger',-2)}else effect('trust',1)}else effect('trust',1);S.messageSeq++;changeTime(2);hud();toast('📤 Đã gửi tin nhắn');chat(k)}
@@ -218,7 +268,10 @@ const upgradeData={
  fridge:{name:'🧊 Tủ lạnh',cost:[0,600000,1100000],max:3,stat:'finance'},
  bed:{name:'🛏️ Giường',cost:[0,900000,1800000],max:3,stat:'happy'}
 };
-function shop(){show(`<h2>10. 🛒 Nâng cấp nhà</h2><p>Đồ vật cố định vị trí. Nâng cấp sẽ thay đổi hình thức và hiệu ứng ngay tại chỗ.</p><div class="cards">${Object.entries(upgradeData).map(([k,d])=>{const lv=S.upgrades[k],cost=d.cost[lv]||0;return `<div class="card"><b>${d.name}</b><br>Cấp ${lv}/${d.max}<br>${lv<d.max?'Nâng cấp: '+fmt(cost):'ĐÃ TỐI ĐA'}<button class="btn gold" ${lv>=d.max?'disabled':''} onclick="upgrade('${k}')">⬆️ ${lv<d.max?'Nâng cấp':'Tối đa'}</button></div>`}).join('')}</div>`)}
+function shop(){
+ const foods=[['rice','🍚 Gạo',30000],['veg','🥬 Rau',25000],['fish','🐟 Cá',70000],['meat','🥩 Thịt',90000],['shrimp','🦐 Tôm',110000],['egg','🥚 Trứng',30000],['noodle','🍜 Mì',15000]];
+ show(`<h2>🛒 Cửa hàng</h2><p><b>Mua thực phẩm chỉ thực hiện tại đây.</b> Tủ lạnh chỉ dùng để xem kho và bắt đầu nấu.</p><h3>🥬 Cửa hàng thực phẩm</h3><div class="cards">${foods.map(x=>`<div class="card"><b>${x[1]}</b><br>Trong kho: <b>${S.inventory[x[0]]}</b><br>${fmt(x[2])}<button class="btn pink" onclick="buyFood('${x[0]}',${x[2]})">🛒 Mua 1</button></div>`).join('')}</div><h3>🏠 Nâng cấp nhà</h3><div class="cards">${Object.entries(upgradeData).map(([k,d])=>{const lv=S.upgrades[k],cost=d.cost[lv]||0;return `<div class="card"><b>${d.name}</b><br>Cấp ${lv}/${d.max}<br>${lv<d.max?'Nâng cấp: '+fmt(cost):'ĐÃ TỐI ĐA'}<button class="btn gold" ${lv>=d.max?'disabled':''} onclick="upgrade('${k}')">⬆️ ${lv<d.max?'Nâng cấp':'Tối đa'}</button></div>`}).join('')}</div>`)
+}
 function upgrade(k){const d=upgradeData[k],lv=S.upgrades[k],cost=d.cost[lv];if(lv>=d.max)return toast('Đã tối đa ⭐');if(S.money<cost)return toast('Chưa đủ tiền 😅');S.money-=cost;S.upgrades[k]++;effect(d.stat,4);effect('finance',-2);hud();visualUpgrade(k);fx('⬆️',55,55);toast(`${d.name} đã được thay bằng phiên bản mới`);shop()}
 function visualUpgrade(k){const map={sofa:0,tv:1,kitchen:2,fridge:3,bed:4};const idx=map[k];const all=document.querySelectorAll('.asset');const e=all[idx];if(!e)return;e.dataset.level=S.upgrades[k];e.classList.add('upgrade-ready');e.style.filter=`saturate(${1+S.upgrades[k]*.18}) brightness(${1+S.upgrades[k]*.06})`;e.style.transform=`scale(${1+S.upgrades[k]*.025})`;let badge=e.querySelector('.lvbadge');if(!badge){badge=document.createElement('div');badge.className='lvbadge';e.appendChild(badge)}badge.textContent='Lv '+S.upgrades[k]}
 function finance(){
@@ -267,7 +320,7 @@ setInterval(()=>{
  if(slot!==S.lastRoutine){
    S.lastRoutine=slot;
    const scenes=['cook','tv','table','idle','tv','table'];
-   if(scenes[slot]!=='idle')routine(scenes[slot]);
+   if(scenes[slot]!=='idle' && !S.busy && !S.cooking)routine(scenes[slot]);
  }
 },2000);
 </script></body></html>
