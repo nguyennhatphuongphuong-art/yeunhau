@@ -1,4 +1,4 @@
-<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>YÊU NHAU CÓ GÌ VUI?</title><style>*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}html,body{margin:0;background:#11111d;font-family:system-ui,sans-serif}body{display:flex;justify-content:center}#game{width:min(430px,100vw);background:#222235;min-height:100vh;color:#292638}#hud{background:#303148;color:#fff;padding:10px;border-bottom:3px solid #171724}.brand{font-size:19px;font-weight:1000}.meta{display:flex;justify-content:space-between;font-size:12px;font-weight:900}.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;margin-top:7px}.stat{font-size:9px;background:#202131;border:2px solid #494b61;border-radius:8px;padding:4px}.bar{height:5px;background:#111;border-radius:5px}.bar i{display:block;height:100%}#world{position:relative;aspect-ratio:9/12;overflow:hidden;background:#d9c5aa}#room{position:absolute;inset:0}.wall{position:absolute;inset:0 0 auto;height:17%;background:#d9c5aa;border-bottom:4px solid #9e8065}.floor{position:absolute;inset:17% 0 0;background:#c7aa89;background-image:linear-gradient(#b58b69 2px,transparent 2px),linear-gradient(90deg,#b58b69 2px,transparent 2px);background-size:24px 24px}.window{position:absolute;left:5%;top:3%;width:36%;height:14%;background:#80a9b7;border:5px solid #292638;z-index:1}.lamp{position:absolute;left:39%;top:15%;width:9%;height:8%;background:#f7d58a;border:4px solid #292638;border-radius:50%;z-index:2}.rug{position:absolute;right:4%;bottom:21%;width:44%;height:10%;background:#b98293;border:4px solid #8e6171;border-radius:8px;z-index:2}.asset{position:absolute;z-index:3}.char{z-index:5}.hot{position:absolute;border:0;background:transparent;z-index:10;touch-action:manipulation}.hot:active{background:#ffffff12}#toast{position:absolute;z-index:30;top:8px;left:50%;transform:translateX(-50%);background:#292638;color:white;border:3px solid #777;border-radius:12px;padding:7px 10px;font-size:11px;font-weight:900;display:none;max-width:90%;text-align:center}#modal{display:none;position:absolute;inset:0;background:#12121dcc;z-index:20;align-items:flex-end}.sheet{width:100%;max-height:90%;overflow:auto;background:#fff1d7;border:3px solid #292638;border-bottom:0;border-radius:18px 18px 0 0;padding:12px}.btn,.choice{width:100%;border:0;border-radius:10px;padding:10px;margin-top:7px;font-weight:900}.btn{background:#5e9fd8;color:#fff}.pink{background:#e77da5}.green{background:#70a36b}.gold{background:#e2ad3f}.choice{background:white;border:2px solid #d6c1a0;text-align:left}.cards{display:grid;grid-template-columns:1fr 1fr;gap:7px}.card{background:#fffaf0;border:2px solid #dac4a4;border-radius:12px;padding:8px}nav{display:grid;grid-template-columns:repeat(5,1fr);gap:5px;padding:6px;background:#161622}nav button{border:2px solid #494b61;background:#2d2e43;color:#fff;border-radius:10px;padding:8px 2px;font-size:10px;font-weight:950}nav button.active{background:#e77da5;color:#352432}
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>YÊU NHAU CÓ GÌ VUI? — V20</title><style>*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}html,body{margin:0;background:#11111d;font-family:system-ui,sans-serif}body{display:flex;justify-content:center}#game{width:min(430px,100vw);background:#222235;min-height:100vh;color:#292638}#hud{background:#303148;color:#fff;padding:10px;border-bottom:3px solid #171724}.brand{font-size:19px;font-weight:1000}.meta{display:flex;justify-content:space-between;font-size:12px;font-weight:900}.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;margin-top:7px}.stat{font-size:9px;background:#202131;border:2px solid #494b61;border-radius:8px;padding:4px}.bar{height:5px;background:#111;border-radius:5px}.bar i{display:block;height:100%}#world{position:relative;aspect-ratio:9/12;overflow:hidden;background:#d9c5aa}#room{position:absolute;inset:0}.wall{position:absolute;inset:0 0 auto;height:17%;background:#d9c5aa;border-bottom:4px solid #9e8065}.floor{position:absolute;inset:17% 0 0;background:#c7aa89;background-image:linear-gradient(#b58b69 2px,transparent 2px),linear-gradient(90deg,#b58b69 2px,transparent 2px);background-size:24px 24px}.window{position:absolute;left:5%;top:3%;width:36%;height:14%;background:#80a9b7;border:5px solid #292638;z-index:1}.lamp{position:absolute;left:39%;top:15%;width:9%;height:8%;background:#f7d58a;border:4px solid #292638;border-radius:50%;z-index:2}.rug{position:absolute;right:4%;bottom:21%;width:44%;height:10%;background:#b98293;border:4px solid #8e6171;border-radius:8px;z-index:2}.asset{position:absolute;z-index:3}.char{z-index:5;transform:scale(.78);transform-origin:50% 100%;filter:drop-shadow(0 3px 0 #29263855);image-rendering:pixelated}.char.walking{transform:scale(.78)}.char.talking{transform:scale(.78)}.hot{position:absolute;border:0;background:transparent;z-index:10;touch-action:manipulation}.hot:active{background:#ffffff12}#toast{position:absolute;z-index:30;top:8px;left:50%;transform:translateX(-50%);background:#292638;color:white;border:3px solid #777;border-radius:12px;padding:7px 10px;font-size:11px;font-weight:900;display:none;max-width:90%;text-align:center}#modal{display:none;position:absolute;inset:0;background:#12121dcc;z-index:20;align-items:flex-end}.sheet{width:100%;max-height:90%;overflow:auto;background:#fff1d7;border:3px solid #292638;border-bottom:0;border-radius:18px 18px 0 0;padding:12px}.btn,.choice{width:100%;border:0;border-radius:10px;padding:10px;margin-top:7px;font-weight:900}.btn{background:#5e9fd8;color:#fff}.pink{background:#e77da5}.green{background:#70a36b}.gold{background:#e2ad3f}.choice{background:white;border:2px solid #d6c1a0;text-align:left}.cards{display:grid;grid-template-columns:1fr 1fr;gap:7px}.card{background:#fffaf0;border:2px solid #dac4a4;border-radius:12px;padding:8px}nav{display:grid;grid-template-columns:repeat(5,1fr);gap:5px;padding:6px;background:#161622}nav button{border:2px solid #494b61;background:#2d2e43;color:#fff;border-radius:10px;padding:8px 2px;font-size:10px;font-weight:950}nav button.active{background:#e77da5;color:#352432}
 #boy,#girl{transition:left 900ms cubic-bezier(.2,.8,.2,1),top 900ms cubic-bezier(.2,.8,.2,1);will-change:left,top}
 .char.walking{animation:walkBob .22s steps(2,end) infinite}
 .char.talking{animation:talkBob .55s steps(2,end) infinite}
@@ -23,10 +23,75 @@
 @keyframes floatBubble{to{transform:translateY(-3px)}}
 .dateScene{position:absolute;inset:0;background:linear-gradient(#8aa6bf 0 38%,#c8a47c 38%)}.dateScene.cafe{background:linear-gradient(#7e9ab6 0 45%,#8b5d48 45%)}.dateScene.cinema{background:linear-gradient(#22243b 0 45%,#6e4354 45%)}.dateScene.park{background:linear-gradient(#8eb6c4 0 45%,#78a05f 45%)}.dateScene.food{background:linear-gradient(#d5a675 0 45%,#6e4a3b 45%)}.dateObj{position:absolute;border:5px solid #292638;background:#c08a61}.dateTable{left:22%;bottom:17%;width:56%;height:16%;border-radius:12px}.dateLight{left:44%;top:18%;width:12%;height:12%;border-radius:50%;background:#f6d58a}.dateBench{left:8%;bottom:11%;width:84%;height:8%;background:#60473e}.dateScreen{left:15%;top:12%;width:70%;height:28%;background:#20233b;border:7px solid #292638}.dateTree{position:absolute;left:8%;bottom:20%;width:20%;height:34%;background:#5f8e58;border:5px solid #292638;border-radius:50%}.dateNPC{position:absolute;bottom:30%;font-size:32px;z-index:5;transition:all .8s ease}.dateBoy{left:29%}.dateGirl{right:29%}
 .marketScene{position:absolute;inset:0;background:#d6b57e}.stall{position:absolute;width:25%;height:22%;background:#9b6748;border:5px solid #292638;top:30%}.stall1{left:4%}.stall2{left:37%}.stall3{right:4%}.marketItem{position:absolute;font-size:26px;z-index:4}.mi1{left:10%;top:35%}.mi2{left:43%;top:35%}.mi3{right:10%;top:35%}.marketNPC{position:absolute;bottom:16%;font-size:34px;z-index:5}
-.lvbadge{position:absolute;right:2px;top:2px;background:#e2ad3f;color:#292638;border:2px solid #292638;border-radius:5px;padding:1px 3px;font-size:7px;font-weight:1000;z-index:20}.asset.upgrade-ready{outline:2px solid #e2ad3f}
+.lvbadge{position:absolute;right:2px;top:2px;background:#e2ad3f;color:#292638;border:2px solid #292638;border-radius:5px;padding:1px 3px;font-size:7px;font-weight:1000;z-index:20}.asset.upgrade-ready{outline:2px solid #e2ad3f}.assetLabel{position:absolute;left:50%;top:-13px;transform:translateX(-50%);z-index:21;white-space:nowrap;background:#292638;color:#fffaf0;border:2px solid #e2ad3f;border-radius:7px;padding:2px 6px;font-size:8px;font-weight:1000;line-height:1;box-shadow:0 2px 0 #292638;pointer-events:none}.assetLv{position:absolute;left:50%;bottom:-11px;transform:translateX(-50%);z-index:21;white-space:nowrap;background:#e2ad3f;color:#292638;border:2px solid #292638;border-radius:6px;padding:2px 5px;font-size:7px;font-weight:1000;line-height:1;pointer-events:none}.asset.skin2{filter:saturate(1.45) hue-rotate(14deg) brightness(1.04) drop-shadow(0 5px 3px #29263855)}.asset.skin3{filter:saturate(1.7) hue-rotate(-16deg) brightness(1.10) drop-shadow(0 6px 4px #29263866)}
 #pet{position:absolute;z-index:9;left:74%;top:72%;width:54px;height:48px;transition:left .9s ease,top .9s ease;cursor:pointer}.petBody{position:absolute;left:9px;top:13px;width:38px;height:28px;background:#e5a76f;border:4px solid #292638;border-radius:12px 12px 8px 8px}.petHead{position:absolute;left:2px;top:2px;width:29px;height:27px;background:#f0bd82;border:4px solid #292638;border-radius:50%}.petEar1,.petEar2{position:absolute;width:10px;height:12px;background:#d98e5d;border:3px solid #292638;top:-5px}.petEar1{left:4px;transform:rotate(-20deg)}.petEar2{left:19px;transform:rotate(20deg)}.petEye{position:absolute;width:4px;height:4px;background:#292638;top:12px;left:9px;box-shadow:10px 0 #292638}.petLeg{position:absolute;bottom:-8px;width:8px;height:12px;background:#d98e5d;border:3px solid #292638}.pl1{left:12px}.pl2{left:34px}.petTail{position:absolute;right:-7px;top:14px;width:18px;height:18px;border:4px solid #292638;border-left:0;border-bottom:0;border-radius:0 14px 0 0;transform:rotate(20deg)}
 .petDog .petBody{background:#b9825f}.petDog .petHead{background:#d49a70}.petDog .petEar1,.petDog .petEar2{background:#8d5a43}
 .petPanel{display:grid;grid-template-columns:1fr 1fr;gap:7px}.petStat{background:#fffaf0;border:2px solid #dac4a4;border-radius:10px;padding:8px}.notif{display:inline-block;min-width:18px;padding:2px 5px;border-radius:9px;background:#e66d78;color:#fff;font-size:9px;text-align:center}
+
+/* V14 - FREE ACTIVITY + REAL CHORES */
+.homeAction{position:absolute;z-index:11;background:#fffaf0;border:3px solid #292638;border-radius:12px;padding:7px 9px;font-size:10px;font-weight:1000;box-shadow:0 3px 0 #292638;pointer-events:none;animation:floatBubble .7s ease-in-out infinite alternate}
+.char.working{animation:workBob .35s steps(2,end) infinite}
+@keyframes workBob{0%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-2px) rotate(1deg)}100%{transform:translateY(0) rotate(-1deg)}}
+.freePanel{background:#fffaf0;border:2px solid #dac4a4;border-radius:12px;padding:10px}
+.freeTimer{font-size:26px;font-weight:1000;text-align:center;margin:5px 0}
+.aiLog{font-size:10px;color:#62586a;min-height:38px;margin-top:6px}
+
+/* V15 GRAPHICS UPGRADE — depth, lighting, richer pixel-art presentation */
+html,body{background:#0b0b13}
+#game{background:#171725;box-shadow:0 0 50px #0008}
+#hud{background:linear-gradient(180deg,#383950,#292a40);box-shadow:0 4px 14px #0005;position:relative;z-index:40}
+.brand{letter-spacing:.2px;text-shadow:2px 2px 0 #171725}
+.stat{background:linear-gradient(180deg,#292b40,#1d1e2e);box-shadow:inset 0 1px #ffffff14,0 2px 0 #10101a}
+.bar{box-shadow:inset 0 1px 2px #0008}
+#world{background:#b99b7a;box-shadow:inset 0 0 45px #0004}
+#room{background:linear-gradient(180deg,#ead7bd00 0 15%,#00000008 100%)}
+.wall{background:linear-gradient(180deg,#ead9c1,#d5bea0 72%,#b88e6f);box-shadow:inset 0 -7px 0 #8f705d,inset 0 0 30px #fff4}
+.wall:after{content:"";position:absolute;left:0;right:0;bottom:-8px;height:5px;background:repeating-linear-gradient(90deg,#8d6d58 0 22px,#a78369 22px 44px);opacity:.7}
+.floor{background-color:#c7aa89;background-image:linear-gradient(135deg,#d4b99a 25%,transparent 25%),linear-gradient(315deg,#d4b99a 25%,transparent 25%),linear-gradient(45deg,#b99675 25%,transparent 25%),linear-gradient(225deg,#b99675 25%,transparent 25%);background-position:0 0,12px 0,12px -12px,0 12px;background-size:24px 24px;box-shadow:inset 0 18px 35px #0002}
+.window{background:linear-gradient(135deg,#9fd2dc,#547f91 55%,#345461);box-shadow:inset 0 0 20px #fff3,0 6px 0 #5e4639,0 10px 18px #0003}
+.window:after{content:"☁  ☁";position:absolute;left:10%;top:15%;color:#eaf8f8aa;font-size:14px;letter-spacing:7px}
+.lamp{box-shadow:0 0 22px #f7d58a88,0 8px 20px #0003}
+.rug{background:radial-gradient(circle,#d49aae 0 35%,#b98293 36% 70%,#8e6171 71%);box-shadow:0 7px 12px #0003,inset 0 0 0 3px #e5b5c5aa}
+.asset{filter:drop-shadow(0 5px 3px #00025);image-rendering:pixelated;transition:filter .25s ease,transform .25s ease}
+.asset svg{width:100%;height:100%;display:block;image-rendering:pixelated;shape-rendering:crispEdges}
+.char{filter:drop-shadow(0 5px 2px #0005);transform-origin:50% 90%}
+.char.walking{filter:drop-shadow(0 5px 2px #0005) brightness(1.04)}
+.char.talking{filter:drop-shadow(0 6px 3px #0005) brightness(1.08)}
+#boy,#girl{transition:left 700ms cubic-bezier(.18,.85,.25,1),top 700ms cubic-bezier(.18,.85,.25,1),filter .2s}
+#pet{filter:drop-shadow(0 5px 2px #0005)}
+#pet:after{content:"";position:absolute;left:10px;bottom:-5px;width:36px;height:7px;background:#0003;border-radius:50%;filter:blur(2px)}
+#roomFX{mix-blend-mode:screen}
+#speech{background:linear-gradient(180deg,#fffdf6,#fff0d3);border-color:#342f40;box-shadow:0 5px 0 #342f40,0 8px 12px #0003}
+#toast{box-shadow:0 5px 15px #0005;backdrop-filter:blur(5px)}
+#modal{backdrop-filter:blur(3px)}
+.sheet{box-shadow:0 -10px 35px #0004;background:linear-gradient(180deg,#fff7e7,#ffeac8)}
+.btn,.choice{box-shadow:0 3px 0 #0002;transition:transform .12s ease,filter .12s ease,box-shadow .12s ease}
+.btn:active,.choice:active{transform:translateY(2px);box-shadow:0 1px 0 #0002;filter:brightness(.96)}
+.card{box-shadow:inset 0 1px #fff8,0 3px 8px #00000010}
+nav{box-shadow:0 -5px 18px #0005;position:relative;z-index:50}
+nav button{box-shadow:inset 0 1px #ffffff12,0 2px 0 #0c0c14;transition:transform .12s ease}
+nav button:active{transform:translateY(2px)}
+.sceneTop{background:linear-gradient(180deg,#0005,transparent);padding-bottom:12px;text-shadow:2px 2px 0 #292638}
+.sceneBack{box-shadow:0 3px 0 #111,0 7px 14px #0004}
+.dateScene,.marketScene,.office{box-shadow:inset 0 0 55px #0003}
+.dateObj,.stall,.officeDesk,.officePC{box-shadow:0 6px 12px #0003}
+.dateLight{box-shadow:0 0 30px #f6d58a99}
+.dateTree{box-shadow:7px 8px 12px #0003}
+.dateNPC{filter:drop-shadow(0 5px 2px #0005)}
+.marketItem{filter:drop-shadow(0 4px 2px #0005)}
+.marketNPC,.officeNPC{filter:drop-shadow(0 5px 2px #0005)}
+.hot{outline:none}
+.hot:active{background:#ffffff0a}
+/* subtle room decoration layers */
+#room:before{content:"";position:absolute;inset:17% 0 0;pointer-events:none;z-index:1;background:radial-gradient(circle at 46% 34%,#fff3 0 12%,transparent 38%),linear-gradient(180deg,transparent 60%,#0002);mix-blend-mode:soft-light}
+#room:after{content:"";position:absolute;left:0;right:0;bottom:0;height:20%;pointer-events:none;z-index:7;background:linear-gradient(180deg,transparent,#3b2b2a18)}
+/* furniture contact shadows make the small characters feel grounded */
+.asset:not(.char){transform-origin:center bottom}
+.upgrade-ready{filter:drop-shadow(0 6px 4px #0003) saturate(1.15) brightness(1.04)!important}
+@media (min-width:431px){#game{border-left:1px solid #343449;border-right:1px solid #343449}}
+
+/* V20 ACTION/TREND UI */
+.v20ObjectCard{background:#fffaf0;border:2px solid #dac4a4;border-radius:12px;padding:9px;margin:6px 0;display:grid;grid-template-columns:1fr auto;gap:3px}.v20ObjectCard small{grid-column:1/-1;color:#766}.v20ShopBanner{background:#292638;color:#fffaf0;border:3px solid #e2ad3f;border-radius:12px;padding:9px;margin-bottom:8px}.v20TrendPost{background:linear-gradient(135deg,#fffaf0,#f5e5cf)}.trendTag{display:inline-block;background:#e77da5;color:#fff;border-radius:999px;padding:3px 7px;font-size:9px;font-weight:1000}.v20Free{position:absolute}.v20FreeTitle{font-weight:1000}.v20FreeBar{height:8px;background:#191923;border-radius:8px;overflow:hidden}.v20FreeBar i{display:block;height:100%;background:#e77da5;width:100%}#v20Free{position:absolute;left:8px;right:8px;bottom:8px;z-index:25;background:#fff1d7;border:3px solid #292638;border-radius:13px;padding:8px;box-shadow:0 4px 0 #292638}.v20FreeTitle{font-size:12px}.v20FreeTime{font-weight:1000;text-align:center;margin:3px}.v20Free button{width:100%;border:0;border-radius:8px;padding:7px;background:#292638;color:#fff;font-weight:900}.asset[data-object]{cursor:pointer}.asset[data-object]:active{filter:brightness(1.18) saturate(1.2)}
 </style></head><body><div id="game"><header id="hud"><div class="brand">💗 YÊU NHAU CÓ GÌ VUI?</div><div class="meta"><span id="time">Ngày 2 · 18:35</span><span id="money">3.200.000đ</span></div><div class="stats"><div class="stat">❤️ 78<div class="bar"><i style="width:78%;background:#ef7fa8"></i></div></div><div class="stat">🤝 74<div class="bar"><i style="width:74%;background:#5e9fd8"></i></div></div><div class="stat">😤 12<div class="bar"><i style="width:12%;background:#e66d78"></i></div></div><div class="stat">💰 61<div class="bar"><i style="width:61%;background:#e5b34c"></i></div></div><div class="stat">🏠 84<div class="bar"><i style="width:84%;background:#70a36b"></i></div></div></div></header><main id="world"><div id="room"><div class="wall"></div><div class="floor"></div><div class="window"></div><div class="lamp"></div><div class="rug"></div><div class="asset" style="left:1.94%;top:19.58%;width:30.28%;height:21.88%"><svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" shape-rendering="crispEdges">
 <defs><filter id="none"><feComponentTransfer/></filter></defs>
 <style>.o{stroke:#272638;stroke-width:4;stroke-linejoin:miter;stroke-linecap:square}</style>
@@ -73,7 +138,7 @@ const S={
  upgrades:{sofa:1,tv:1,kitchen:1,fridge:1,bed:1},
  chores:{dish:false,laundry:false,trash:false,floor:false},
  work:{email:0,report:0,meeting:0},
- chatIndex:0, socialIndex:0, lastRoutine:-1, player:'boy', partner:'girl', inventory:{rice:2,veg:2,fish:1,meat:1,shrimp:1,egg:6,noodle:4}, fridgeOpen:false, pet:{type:'cat',name:'Miu',hunger:72,happy:78,clean:84,energy:88}, unread:0, inbox:{love:[],best:[],friend:[],family:[],coworker:[]}, messageSeq:0, cooking:null, scene:'home', clean:100, playerGenderChosen:true, busy:false
+ chatIndex:0, socialIndex:0, lastRoutine:-1, player:'boy', partner:'girl', inventory:{rice:2,veg:2,fish:1,meat:1,shrimp:1,egg:6,noodle:4}, fridgeOpen:false, pet:{type:'cat',name:'Miu',hunger:72,happy:78,clean:84,energy:88,food:{dry:3,wet:2,treat:1}}, unread:0, inbox:{love:[],best:[],friend:[],family:[],coworker:[]}, messageSeq:0, cooking:null, scene:'home', clean:100, playerGenderChosen:true,freeActive:null,busy:false, busy:false
 };
 const $=id=>document.getElementById(id);
 const clamp=(n,a=0,b=100)=>Math.max(a,Math.min(b,n));
@@ -155,20 +220,21 @@ async function routine(scene='idle'){
 function hit(x,y,w,h,fn){let b=document.createElement('button');b.className='hot';b.style.cssText=`left:${x/360*100}%;top:${y/480*100}%;width:${w/360*100}%;height:${h/480*100}%`;b.onclick=fn;$('hotspots').appendChild(b)}
 function tvOn(){let t=document.querySelector('.tv-screen');if(t){t.textContent='📺';t.style.display='block';t.style.animation='tvf .35s steps(2,end) infinite'}}
 function init(){
- hit(5,90,112,112,()=>cook());
+ hit(5,90,112,112,()=>{toast('🍳 Bếp — bạn có thể nấu tự do hoặc chọn món');show(`<h2>🍳 Bếp</h2><p class="card">Bạn có thể đứng nấu tự do 1 phút, hoặc bắt đầu một món cụ thể.</p>${btn('🍳 Nấu tự do 1 phút','startFreeActivity(\'cook\')','pink')}${btn('🍲 Chọn món nấu','cook()','choice')}`)});
  hit(110,90,82,112,()=>fridge());
- hit(204,62,126,105,()=>{routine('tv');show(`<h2>📺 Xem TV</h2><p class="card">Hai người cùng ngồi sofa. TV đang chiếu một chương trình đơn giản.</p>${btn('😂 Nhường remote','effect("happy",3);effect("love",2);hud();toast("Anh nhường remote 😌")')}${btn('😤 Tranh remote','effect("anger",5);effect("trust",-2);hud();toast("Chiến tranh lạnh bắt đầu")','pink')}`)});
+ hit(204,62,126,105,()=>startFreeActivity('tv'));
  hit(178,109,180,132,()=>live());
  hit(200,218,180,132,()=>{routine('table');show(`<h2>🍚 Bàn ăn</h2><p class="card">Bàn ăn chỉ có ý nghĩa khi có đồ ăn thật.</p>${btn('🥢 Ăn cùng nhau','eatMeal()')}`)});
  hit(268,315,92,101,()=>chores());
  hit(1,371,177,109,()=>sleep());
  hit(137,238,168,138,()=>live());
  hit(250,360,75,80,()=>petMenu());
+ decorateHomeObjects();
  homeSchedule();
 }
 function fridge(){
   const items=[['rice','🍚 Gạo'],['veg','🥬 Rau'],['fish','🐟 Cá'],['meat','🥩 Thịt'],['shrimp','🦐 Tôm'],['egg','🥚 Trứng'],['noodle','🍜 Mì']];
-  show(`<h2>🧊 Tủ lạnh</h2><p>Đây chỉ là <b>kho thực phẩm</b>. Muốn mua thêm, vào <b>🛒 Cửa hàng</b> ở thanh dưới.</p><div class="cards">${items.map(x=>`<div class="card">${x[1]}<br><b>${S.inventory[x[0]]}</b> phần</div>`).join('')}</div>${btn('🍳 Nấu ăn','cook()','pink')}${btn('🛒 Mở Cửa hàng','closeModal();shop()','gold')}`)
+  show(`<h2>🧊 Tủ lạnh</h2><p>Đây chỉ là <b>kho thực phẩm</b>. Tủ lạnh <b>không có chức năng chọn hoặc nấu món</b>.</p><div class="cards">${items.map(x=>`<div class="card">${x[1]}<br><b>${S.inventory[x[0]]}</b> phần</div>`).join('')}</div><p class="card">🍳 Muốn nấu ăn: chạm vào <b>khu vực Bếp</b> trong nhà.</p>${btn('🛒 Mở Cửa hàng','closeModal();shop()','gold')}`)
 }
 function grocery(){shop()}
 
@@ -233,18 +299,21 @@ async function serveMeal(){
 }
 async function eatMeal(){if(S.scene!=='home')returnHomeScene();effect('love',3);effect('happy',5);effect('anger',-2);changeTime(20);hud();toast('🍜 Bữa tối ngon lành ❤️');await routine('table')}
 function fireReset(){if(S.cooking){if(S.cooking.timer)clearInterval(S.cooking.timer);if(S.cooking.serveTimer)clearInterval(S.cooking.serveTimer);S.cooking=null}effect('anger',5);effect('happy',-3);hud();toast('😅 Món nguội mất rồi — không cháy nhà đâu!');setTimeout(()=>fridge(),250)}
-function chores(){const list=[['dish','🍽️ Rửa bát','girl'],['laundry','👕 Giặt quần áo','boy'],['trash','🗑️ Đổ rác','girl'],['floor','🧹 Lau nhà','boy']];show('<h2>6. 🧹 Việc nhà</h2><p>NPC sẽ thật sự đi tới vị trí và làm việc.</p>'+list.map(([k,x,w])=>`<button class="choice" onclick="doChore('${k}','${w}')">${S.chores[k]?'☑️':'☐'} ${x}</button>`).join('')+'<p class="card">Độ sạch nhà: '+S.clean+'%</p>')}
-async function doChore(k,who){if(S.chores[k])return;closeModal();if(S.scene!=='home')returnHomeScene();const pos={dish:[68,61],laundry:[78,75],trash:[15,62],floor:[55,72]}[k];await moveNPC(who,pos[0],pos[1]);say(k==='dish'?'Rửa bát xong!':k==='laundry'?'Máy giặt chạy rồi!':k==='trash'?'Đổ rác rồi 😎':'Lau nhà mỏi cả lưng 😂',who);S.chores[k]=true;S.clean=clamp(S.clean+5);effect('happy',2);effect('anger',-2);changeTime(8);hud();chores()}
-function live(){homeSchedule();show(`<h2>11. 👫 Hai người cùng sống</h2><p>${(S.h>=18?'18:10':'Trong ngày')} — Hai người ở nhà.</p><div class="cards"><button class="choice" onclick="cook()">🍳 Nấu ăn</button><button class="choice" onclick="eatMeal()">🍚 Ăn tối</button><button class="choice" onclick="routine('tv');toast('📺 Cả hai ngồi sofa xem TV')">📺 Xem TV</button><button class="choice" onclick="coupleTalk()">💬 Tâm sự</button></div>`)}
+function chores(){const list=[['dish','🍽️ Rửa bát','girl','💦'],['laundry','👕 Giặt quần áo','boy','🫧'],['trash','🗑️ Đổ rác','girl','🗑️'],['floor','🧹 Lau nhà','boy','🧹']];show('<h2>6. 🧹 Việc nhà</h2><p>Chạm vào việc — NPC sẽ đi tới đúng chỗ, thực hiện hành động rồi mới hoàn thành.</p>'+list.map(([k,x,w,fxi])=>`<button class="choice" onclick="doChore('${k}','${w}','${fxi}')">${S.chores[k]?'☑️':'⬜'} ${x}</button>`).join('')+'<p class="card">Độ sạch nhà: '+S.clean+'%</p>')}
+async function doChore(k,who,icon){if(S.chores[k]||S.busy)return;closeModal();if(S.scene!=='home')returnHomeScene();S.busy=true;const pos={dish:[68,61],laundry:[78,75],trash:[15,62],floor:[55,72]}[k];const labels={dish:'Đang rửa bát...',laundry:'Đang giặt quần áo...',trash:'Đang mang rác đi...',floor:'Đang lau nhà...'};try{await moveNPC(who,pos[0],pos[1]);const c=$(who);if(c)c.classList.add('working');const fxEl=document.createElement('div');fxEl.className='homeAction';fxEl.textContent=icon+' '+labels[k];fxEl.style.left=Math.min(76,pos[0])+'%';fxEl.style.top=Math.max(8,pos[1]-12)+'%';$('world').appendChild(fxEl);await waitMs(4500);fxEl.remove();if(c)c.classList.remove('working');S.chores[k]=true;S.clean=clamp(S.clean+5);effect('happy',2);effect('anger',-2);changeTime(8);hud();say(k==='dish'?'Rửa bát xong! 💦':k==='laundry'?'Quần áo giặt xong rồi! 🫧':k==='trash'?'Đổ rác xong 😎':'Nhà sạch rồi! 🧹',who);chores()}finally{S.busy=false}}
+function live(){homeSchedule();show(`<h2>🏠 Hoạt động tự do</h2><p>Chọn một hoạt động. Bạn có thể ở đó khoảng <b>1 phút</b>, còn người yêu sẽ tự quyết định việc của họ.</p><div class="cards"><button class="choice" onclick="startFreeActivity('cook')">🍳 Nấu nướng tự do<br><small>Ở bếp 1 phút</small></button><button class="choice" onclick="startFreeActivity('tv')">📺 Xem TV tự do<br><small>Ngồi sofa 1 phút</small></button><button class="choice" onclick="coupleTalk()">💬 Tâm sự</button></div>`)}
+function startFreeActivity(type){if(S.scene!=='home')return;closeModal();if(S.freeActive)return toast('Đang có một hoạt động');S.freeActive={type,remain:60,partnerAction:'Đang tự do'};S.busy=true;const pos=type==='cook'?[30,47]:[43,55];moveNPC(S.player,pos[0],pos[1]);if(type==='tv')tvOn();else toast('🍳 Bạn đang nấu nướng tự do');setTimeout(()=>freeActivityLoop(),850)}
+async function freeActivityLoop(){if(!S.freeActive)return;const a=S.freeActive;const c=$(S.player);if(c)c.classList.add('working');const title=a.type==='cook'?'🍳 Đang nấu nướng':'📺 Đang xem TV';const panel=document.createElement('div');panel.className='homeAction';panel.id='freeActivityHUD';panel.style.left='3%';panel.style.top='4%';panel.innerHTML=`${title}<div class="freeTimer">60s</div><div class="aiLog" id="aiLog">🤖 Người yêu đang tự quyết định...</div>`;$('world').appendChild(panel);let last=Date.now();let elapsed=0;while(S.freeActive&&elapsed<60){await waitMs(1000);if(!S.freeActive)break;elapsed++;a.remain=60-elapsed;const t=$('freeActivityHUD');if(t){t.querySelector('.freeTimer').textContent=a.remain+'s';}if(elapsed%7===0)await partnerAI();}if(panel.parentNode)panel.remove();if(c)c.classList.remove('working');S.freeActive=null;S.busy=false;if(a.type==='tv'){$('.tv-screen').style.display='none';}effect('happy',3);effect('love',2);changeTime(60);hud();toast('⏱️ Hoạt động tự do kết thúc');homeSchedule()}
+async function partnerAI(){if(!S.partner||S.scene!=='home'||S.h>=7&&S.h<11||S.h>=14&&S.h<17)return;const choices=['tv','cook','table','pet','tidy','talk'];const pick=choices[Math.floor(Math.random()*choices.length)];const log=$('aiLog');const p=S.partner;if(pick==='tv'){await moveNPC(p,57,57,'Em xem TV một chút nhé 📺');tvOn();if(log)log.textContent='🤖 Người yêu tự chọn: xem TV';}else if(pick==='cook'){await moveNPC(p,23,49,'Để em phụ bếp 😋');if(log)log.textContent='🤖 Người yêu tự chọn: phụ nấu ăn';}else if(pick==='table'){await moveNPC(p,61,68,'Em ngồi chờ cơm ❤️');if(log)log.textContent='🤖 Người yêu tự chọn: ngồi bàn ăn';}else if(pick==='pet'){await moveNPC(p,70,68,'Miu ơi, lại đây nào 🐾');await petMove(70,65);if(log)log.textContent='🤖 Người yêu tự chọn: chơi với thú cưng';}else if(pick==='tidy'){const k=Object.keys(S.chores).find(x=>!S.chores[x]);if(k){const pos={dish:[68,61],laundry:[78,75],trash:[15,62],floor:[55,72]}[k];await moveNPC(p,pos[0],pos[1],'Để em dọn một chút 🧹');S.chores[k]=true;S.clean=clamp(S.clean+4);if(log)log.textContent='🤖 Người yêu tự chọn: dọn dẹp';}}else{await moveNPC(p,55,58,'Hôm nay ở nhà vui ghê ❤️');effect('love',1);if(log)log.textContent='🤖 Người yêu tự chọn: tâm sự';}}
 function coupleTalk(){effect('love',5);effect('trust',4);effect('happy',4);hud();say('Hôm nay của anh/em thế nào?',S.partner);toast('💬 Hai người nói chuyện với nhau')}
 const contacts={love:{name:'❤️ Người yêu',avatar:'👩',messages:[['Em: Anh đang làm gì đấy?','Anh: Anh đang ở nhà nè.'],['Em: Sao rep lâu thế? Ai vừa nhắn cho anh vậy? 😤','Anh: Không có ai đâu 😅'],['Em: Tối nay có nấu gì cho em không?','Anh: Có chứ ❤️']]},best:{name:'🧑 Bạn thân',avatar:'🧑',messages:[['Bạn: Tối nay đá bóng không?','Anh: Để xem lịch đã.'],['Bạn: Ông có người yêu rồi quên anh em à 😂','Anh: Không quên!']]},friend:{name:'👩 Bạn khác giới',avatar:'👩',messages:[['Bạn: Mai đi cà phê không?','Anh: Để tôi xem đã.'],['Bạn: Nhớ mang laptop nhé.','Anh: Ok.']]},family:{name:'👪 Gia đình',avatar:'👪',messages:[['Mẹ: Cuối tuần về ăn cơm nhé.','Con: Dạ.'],['Mẹ: Nhớ gọi cho mẹ.','Con: Vâng ạ.']]},coworker:{name:'💼 Đồng nghiệp',avatar:'🧑‍💼',messages:[['Đồng nghiệp: Mai họp 8h nhé.','Ok.'],['Đồng nghiệp: Gửi giúp file nhé.','Được.']]}};
 function phone(){show(`<h2>2. 📱 Điện thoại</h2><p>Tin nhắn đến bất chợt. Có nhiều người nhắn, không chỉ người yêu.</p><div class="cards"><button class="choice" onclick="inbox()">💬 Tin nhắn ${S.unread?'<span class="notif">'+S.unread+'</span>':''}</button><button class="choice" onclick="social()">📸 MXH</button><button class="choice" onclick="petMenu()">🐾 Thú cưng</button><button class="choice" onclick="finance()">🏦 Ngân hàng</button><button class="choice" onclick="status()">📊 Trạng thái</button><button class="choice" onclick="characterMenu()">👤 Nhân vật</button></div>`)}
 function inbox(){show(`<h2>3. 💬 Tin nhắn</h2>${Object.entries(contacts).map(([k,c])=>`<button class="choice" onclick="chat('${k}')">${c.avatar} <b>${c.name}</b>${S.inbox[k].length?'<span class="notif" style="float:right">'+S.inbox[k].length+'</span>':''}</button>`).join('')}`)}
-function chat(k){const c=contacts[k];const arr=S.inbox[k];let text=c.messages[S.messageSeq%c.messages.length];if(arr.length)text=arr.shift();S.unread=Math.max(0,S.unread-1);show(`<h2>${c.avatar} ${c.name}</h2><div class="chat"><div class="bubble">${text[0]}</div><div class="bubble me">${text[1]}</div></div><div style="display:flex;gap:6px;margin-top:8px"><input id="chatInput" maxlength="120" placeholder="Nhập tin nhắn..." style="flex:1;padding:11px;border:2px solid #dac4a4;border-radius:10px;font-size:13px"><button class="btn pink" style="width:90px;margin-top:0" onclick="sendMessage('${k}')">Gửi</button></div>${k==='love'?`<p><b>Phản hồi nhanh:</b></p>${btn('❤️ Anh chỉ nói chuyện với em.','replyLove("good")','choice')}${btn('😅 Bạn thôi mà.','replyLove("soft")','choice')}${btn('🙄 Đang bận, lát nói.','replyLove("bad")','choice')}`:''}${btn('⬅️ Danh sách','inbox()')}`)}
+function chat(k){const c={...contacts[k]};if(k==='love')c.name='❤️ '+S.partnerName;const arr=S.inbox[k];let text=c.messages[S.messageSeq%c.messages.length];if(arr.length)text=arr.shift();S.unread=Math.max(0,S.unread-1);show(`<h2>${c.avatar} ${c.name}</h2><div class="chat"><div class="bubble">${text[0]}</div><div class="bubble me">${text[1]}</div></div><div style="display:flex;gap:6px;margin-top:8px"><input id="chatInput" maxlength="120" placeholder="Nhập tin nhắn..." style="flex:1;padding:11px;border:2px solid #dac4a4;border-radius:10px;font-size:13px"><button class="btn pink" style="width:90px;margin-top:0" onclick="sendMessage('${k}')">Gửi</button></div>${k==='love'?`<p><b>Phản hồi nhanh:</b></p>${btn('❤️ Anh chỉ nói chuyện với em.','replyLove("good")','choice')}${btn('😅 Bạn thôi mà.','replyLove("soft")','choice')}${btn('🙄 Đang bận, lát nói.','replyLove("bad")','choice')}`:''}${btn('⬅️ Danh sách','inbox()')}`)}
 function sendMessage(k){const input=$('chatInput');const text=(input?.value||'').trim();if(!text)return toast('Viết gì đó trước đã 😅');if(k==='love'){const low=text.toLowerCase();if(/(cà phê|caphe|đi chơi|tối nay)/.test(low)){effect('anger',4);effect('trust',-1)}else if(/(yêu|nhớ|thương|ăn chưa|nấu|về chưa)/.test(low)){effect('love',3);effect('trust',2);effect('anger',-2)}else effect('trust',1)}else effect('trust',1);S.messageSeq++;changeTime(2);hud();toast('📤 Đã gửi tin nhắn');chat(k)}
 function replyLove(t){if(t==='good'){effect('trust',5);effect('love',3);effect('anger',-6)}if(t==='soft'){effect('trust',2);effect('anger',-1)}if(t==='bad'){effect('trust',-5);effect('anger',7)}changeTime(5);hud();toast(t==='bad'?'😤 Người yêu bắt đầu nghi ngờ':'❤️ Tin tưởng tăng');chat('love')}
 function genericReply(k){effect('trust',1);changeTime(2);hud();toast('Đã trả lời '+contacts[k].name);chat(k)}
-function randomMessage(){const keys=Object.keys(contacts);const k=keys[Math.floor(Math.random()*keys.length)];const c=contacts[k];const m=c.messages[Math.floor(Math.random()*c.messages.length)];S.inbox[k].push(m);S.unread++;fx('📱',82,15);toast('📱 '+c.name+' vừa nhắn');}
+function randomMessage(){const keys=Object.keys(contacts);const k=keys[Math.floor(Math.random()*keys.length)];const c={...contacts[k]};if(k==='love')c.name='❤️ '+S.partnerName;const m=c.messages[Math.floor(Math.random()*c.messages.length)];S.inbox[k].push(m);S.unread++;fx('📱',82,15);toast('📱 '+c.name+' vừa nhắn');}
 function social(){const p=posts[S.socialIndex%posts.length];show(`<h2>📸 Mạng xã hội</h2><div class="post"><b>${p[0]}</b><p>${p[1]}</p><small>${p[2]}</small></div>${btn('❤️ Thả tim','effect("love",1);hud();toast("Đã thả tim")','pink')}${btn('💬 Bình luận','effect("happy",1);hud();toast("Đã bình luận")','choice')}${btn('➡️ Lướt bài tiếp','socialNext()','btn')}`)}
 function socialNext(){S.socialIndex++;changeTime(2);social()}
 const tasks=[['email','📧 Xử lý email',3],['report','📄 Làm báo cáo',3],['meeting','👥 Họp online',2]];
@@ -253,9 +322,13 @@ function doWorkReal(k,label,max){if(S.energy<8)return toast('Hết năng lượn
 const dates=[['🍜 Quán ăn','food',300000,10,'Anh chọn món, em chọn quán nhé!'],['🎬 Rạp phim','cinema',500000,8,'Ai được chọn phim? Người cầm ví quyết định 😂'],['🌳 Công viên','park',200000,7,'Đi bộ 20 phút mà nói chuyện 2 tiếng.'],['☕ Cà phê','cafe',150000,6,'Cà phê hay drama? Hôm nay chọn cả hai.']];
 function date(){show(`<h2>9. ❤️ Hẹn hò</h2><p>Chọn địa điểm — mỗi nơi có background riêng.</p><div class="cards">${dates.map((d,i)=>`<div class="card"><b>${d[0]}</b><br>${fmt(d[2])}<p>${d[4]}</p><button class="btn pink" onclick="goDate(${i})">Đi</button></div>`).join('')}</div>`)}
 async function goDate(i){const d=dates[i];if(S.money<d[2])return toast('Không đủ tiền 😅');S.money-=d[2];effect('love',d[3]);effect('trust',3);effect('happy',5);changeTime(60);setScene('date','❤️ '+d[0],`<div class="dateScene ${d[1]}"><div class="dateLight"></div><div class="dateObj dateTable"></div><div class="dateObj dateBench"></div><div class="dateScreen"></div><div class="dateTree"></div><div class="dateNPC dateBoy">🧑</div><div class="dateNPC dateGirl">👩</div></div>`);await waitMs(400);toast('❤️ Hai người đã tới nơi');show(`<h2>${d[0]}</h2><div class="card">${d[4]}<br><b>❤️ +${d[3]} · 🤝 +3 · 🏠 +5</b></div>${btn('💬 Tâm sự','effect("love",2);effect("trust",2);hud();toast("Buổi hẹn vui hơn ❤️")')}`)}
-function characterMenu(){show(`<h2>👤 Nhân vật</h2><p>Chọn nhân vật người chơi. Lịch người yêu sẽ tự thay đổi.</p>${btn('👨 Chơi nhân vật nam','setGender("boy")','pink')}${btn('👩 Chơi nhân vật nữ','setGender("girl")','pink')}`)}
+function characterMenu(){show(`<h2>👤 Nhân vật</h2><p>Đặt tên riêng cho người yêu và thú cưng. Tên sẽ được dùng trong điện thoại, lời thoại và bảng thú cưng.</p><div class="card"><b>❤️ Người yêu</b><input id="partnerNameInput" value="${S.partnerName}" maxlength="18" placeholder="Tên người yêu" style="width:100%;margin-top:7px;padding:10px;border:2px solid #dac4a4;border-radius:10px;font-size:14px"><button class="btn pink" onclick="saveNames('partner')">💾 Lưu tên người yêu</button></div><div class="card"><b>🐾 Thú cưng</b><input id="petNameInput" value="${S.pet.name}" maxlength="18" placeholder="Tên thú cưng" style="width:100%;margin-top:7px;padding:10px;border:2px solid #dac4a4;border-radius:10px;font-size:14px"><button class="btn pink" onclick="saveNames('pet')">💾 Lưu tên thú cưng</button></div>${btn('👨 Chơi nhân vật nam','setGender(\"boy\")','choice')}${btn('👩 Chơi nhân vật nữ','setGender(\"girl\")','choice')}`)}
+function saveNames(type){const input=$(type==='partner'?'partnerNameInput':'petNameInput');const name=(input?.value||'').trim();if(!name)return toast('Tên không được để trống 😅');if(type==='partner')S.partnerName=name;else S.pet.name=name;hud();characterMenu();toast(type==='partner'?'❤️ Đã đặt tên người yêu':'🐾 Đã đặt tên thú cưng')}
 function setGender(g){S.player=g;S.partner=g==='boy'?'girl':'boy';closeModal();toast(g==='boy'?'👨 Bạn là nam — người yêu nữ đi làm theo ca.':'👩 Bạn là nữ — người yêu nam đi làm theo ca.');homeSchedule();}
-function petMenu(){show(`<h2>🐾 Thú cưng — ${S.pet.name}</h2><div class="petPanel"><div class="petStat">🍗 Đói<br><b>${S.pet.hunger}/100</b></div><div class="petStat">😊 Vui<br><b>${S.pet.happy}/100</b></div><div class="petStat">🧼 Sạch<br><b>${S.pet.clean}/100</b></div><div class="petStat">⚡ Năng lượng<br><b>${S.pet.energy}/100</b></div></div>${btn('🍖 Cho ăn','petAction("feed")','pink')}${btn('🎾 Chơi','petAction("play")','choice')}${btn('🧼 Tắm','petAction("clean")','choice')}${btn('🐾 Gọi lại','petFollow()','choice')}`)}
+function petMenu(){show(`<h2>🐾 ${S.pet.name}</h2><div class="petPanel"><div class="petStat">🍗 Đói<br><b>${S.pet.hunger}/100</b></div><div class="petStat">😊 Vui<br><b>${S.pet.happy}/100</b></div><div class="petStat">🧼 Sạch<br><b>${S.pet.clean}/100</b></div><div class="petStat">⚡ Năng lượng<br><b>${S.pet.energy}/100</b></div></div><h3>🍖 Thức ăn</h3><div class="cards"><div class="card">🥣 Hạt khô<br>Kho: <b>${S.pet.food.dry}</b>${btn('Cho ăn','petFeed(\"dry\")','choice')}</div><div class="card">🥫 Pate<br>Kho: <b>${S.pet.food.wet}</b>${btn('Cho ăn','petFeed(\"wet\")','choice')}</div><div class="card">🦴 Bánh thưởng<br>Kho: <b>${S.pet.food.treat}</b>${btn('Cho ăn','petFeed(\"treat\")','choice')}</div></div>${btn('🎾 Chơi','petAction("play")','choice')}${btn('🧼 Tắm','petAction("clean")','choice')}${btn('🐾 Gọi lại','petFollow()','choice')}${btn('🛒 Mua thức ăn cho thú cưng','shopPetFood()','gold')}`)}
+function petFeed(kind){if((S.pet.food[kind]||0)<=0)return toast('🍖 Hết thức ăn này — vào Cửa hàng mua thêm');S.pet.food[kind]--;const gain={dry:16,wet:22,treat:10}[kind];S.pet.hunger=clamp(S.pet.hunger+gain);S.pet.happy=clamp(S.pet.happy+(kind==='treat'?8:4));hud();toast(`🐾 ${S.pet.name} ăn ngon lành`);petMenu()}
+function shopPetFood(){show(`<h2>🐾 Cửa hàng thú cưng</h2><p>Thức ăn mua tại Cửa hàng sẽ được đưa thẳng vào kho thú cưng.</p><div class="cards"><div class="card">🥣 Hạt khô<br>${fmt(45000)}<button class="btn pink" onclick="buyPetFood('dry',45000)">Mua 1</button></div><div class="card">🥫 Pate<br>${fmt(60000)}<button class="btn pink" onclick="buyPetFood('wet',60000)">Mua 1</button></div><div class="card">🦴 Bánh thưởng<br>${fmt(30000)}<button class="btn pink" onclick="buyPetFood('treat',30000)">Mua 1</button></div></div>`)}
+function buyPetFood(k,cost){if(S.money<cost)return toast('Không đủ tiền 😅');S.money-=cost;S.pet.food[k]=(S.pet.food[k]||0)+1;hud();toast('🐾 Đã mua thức ăn cho '+S.pet.name);shopPetFood()}
 async function petAction(a){closeModal();if(a==='feed'){S.pet.hunger=clamp(S.pet.hunger+20);S.pet.happy=clamp(S.pet.happy+4);toast('🐾 '+S.pet.name+' ăn ngon lành')}if(a==='play'){S.pet.happy=clamp(S.pet.happy+12);S.pet.energy=clamp(S.pet.energy-8);await petMove(55,65);toast('🎾 '+S.pet.name+' chạy quanh nhà')}if(a==='clean'){S.pet.clean=clamp(S.pet.clean+25);toast('🧼 '+S.pet.name+' sạch sẽ rồi')}fx('❤️',78,70);hud()}
 async function petMove(l,t){const p=$('pet');p.style.left=l+'%';p.style.top=t+'%';await waitMs(900)}
 function petFollow(){closeModal();petMove(48,72);toast('🐾 '+S.pet.name+' chạy theo bạn')}
@@ -270,10 +343,13 @@ const upgradeData={
 };
 function shop(){
  const foods=[['rice','🍚 Gạo',30000],['veg','🥬 Rau',25000],['fish','🐟 Cá',70000],['meat','🥩 Thịt',90000],['shrimp','🦐 Tôm',110000],['egg','🥚 Trứng',30000],['noodle','🍜 Mì',15000]];
- show(`<h2>🛒 Cửa hàng</h2><p><b>Mua thực phẩm chỉ thực hiện tại đây.</b> Tủ lạnh chỉ dùng để xem kho và bắt đầu nấu.</p><h3>🥬 Cửa hàng thực phẩm</h3><div class="cards">${foods.map(x=>`<div class="card"><b>${x[1]}</b><br>Trong kho: <b>${S.inventory[x[0]]}</b><br>${fmt(x[2])}<button class="btn pink" onclick="buyFood('${x[0]}',${x[2]})">🛒 Mua 1</button></div>`).join('')}</div><h3>🏠 Nâng cấp nhà</h3><div class="cards">${Object.entries(upgradeData).map(([k,d])=>{const lv=S.upgrades[k],cost=d.cost[lv]||0;return `<div class="card"><b>${d.name}</b><br>Cấp ${lv}/${d.max}<br>${lv<d.max?'Nâng cấp: '+fmt(cost):'ĐÃ TỐI ĐA'}<button class="btn gold" ${lv>=d.max?'disabled':''} onclick="upgrade('${k}')">⬆️ ${lv<d.max?'Nâng cấp':'Tối đa'}</button></div>`}).join('')}</div>`)
+ show(`<h2>🛒 Cửa hàng</h2><p><b>Mua thực phẩm chỉ thực hiện tại đây.</b> Tủ lạnh chỉ dùng để xem kho. Muốn nấu, hãy chạm vào BẾP trong nhà.</p><h3>🥬 Cửa hàng thực phẩm</h3><div class="cards">${foods.map(x=>`<div class="card"><b>${x[1]}</b><br>Trong kho: <b>${S.inventory[x[0]]}</b><br>${fmt(x[2])}<button class="btn pink" onclick="buyFood('${x[0]}',${x[2]})">🛒 Mua 1</button></div>`).join('')}</div><h3>🐾 Thức ăn thú cưng</h3><div class="cards"><div class="card">🥣 Hạt khô<br>Kho: <b>${S.pet.food.dry}</b><br>${fmt(45000)}<button class="btn pink" onclick="buyPetFood('dry',45000)">🛒 Mua</button></div><div class="card">🥫 Pate<br>Kho: <b>${S.pet.food.wet}</b><br>${fmt(60000)}<button class="btn pink" onclick="buyPetFood('wet',60000)">🛒 Mua</button></div><div class="card">🦴 Bánh thưởng<br>Kho: <b>${S.pet.food.treat}</b><br>${fmt(30000)}<button class="btn pink" onclick="buyPetFood('treat',30000)">🛒 Mua</button></div></div><h3>🏠 Nâng cấp nhà</h3><div class="cards">${Object.entries(upgradeData).map(([k,d])=>{const lv=S.upgrades[k],cost=d.cost[lv]||0;return `<div class="card"><b>${d.name}</b><br>Cấp ${lv}/${d.max}<br>${lv<d.max?'Nâng cấp: '+fmt(cost):'ĐÃ TỐI ĐA'}<button class="btn gold" ${lv>=d.max?'disabled':''} onclick="upgrade('${k}')">⬆️ ${lv<d.max?'Nâng cấp':'Tối đa'}</button></div>`}).join('')}</div>`)
 }
 function upgrade(k){const d=upgradeData[k],lv=S.upgrades[k],cost=d.cost[lv];if(lv>=d.max)return toast('Đã tối đa ⭐');if(S.money<cost)return toast('Chưa đủ tiền 😅');S.money-=cost;S.upgrades[k]++;effect(d.stat,4);effect('finance',-2);hud();visualUpgrade(k);fx('⬆️',55,55);toast(`${d.name} đã được thay bằng phiên bản mới`);shop()}
-function visualUpgrade(k){const map={sofa:0,tv:1,kitchen:2,fridge:3,bed:4};const idx=map[k];const all=document.querySelectorAll('.asset');const e=all[idx];if(!e)return;e.dataset.level=S.upgrades[k];e.classList.add('upgrade-ready');e.style.filter=`saturate(${1+S.upgrades[k]*.18}) brightness(${1+S.upgrades[k]*.06})`;e.style.transform=`scale(${1+S.upgrades[k]*.025})`;let badge=e.querySelector('.lvbadge');if(!badge){badge=document.createElement('div');badge.className='lvbadge';e.appendChild(badge)}badge.textContent='Lv '+S.upgrades[k]}
+const HOME_OBJECTS=[{id:'kitchen',name:'🍳 BẾP',idx:0},{id:'fridge',name:'🧊 TỦ LẠNH',idx:1},{id:'tv',name:'📺 TIVI',idx:2},{id:'sofa',name:'🛋️ SOFA',idx:3},{id:'table',name:'🍚 BÀN ĂN',idx:4},{id:'plant',name:'🌿 CÂY CẢNH',idx:5},{id:'petarea',name:'🐾 KHU THÚ CƯNG',idx:6},{id:'bed',name:'🛏️ GIƯỜNG',idx:7}];
+function decorateHomeObjects(){const all=document.querySelectorAll('#room .asset');HOME_OBJECTS.forEach(o=>{const e=all[o.idx];if(!e)return;e.dataset.object=o.id;e.dataset.objectName=o.name;let label=e.querySelector('.assetLabel');if(!label){label=document.createElement('div');label.className='assetLabel';e.appendChild(label)}label.textContent=o.name;applyObjectLevel(o.id,e)})}
+function applyObjectLevel(k,e){const level=S.upgrades[k]||1;e.classList.remove('skin2','skin3');e.dataset.level=level;if(level===2)e.classList.add('skin2');if(level>=3)e.classList.add('skin3');let badge=e.querySelector('.assetLv');if(['kitchen','fridge','tv','sofa','bed'].includes(k)){if(!badge){badge=document.createElement('div');badge.className='assetLv';e.appendChild(badge)}badge.textContent='Cấp '+level}else if(badge)badge.remove()}
+function visualUpgrade(k){const e=document.querySelector(`#room .asset[data-object="${k}"]`);if(!e)return;e.classList.add('upgrade-ready');applyObjectLevel(k,e);setTimeout(()=>e.classList.remove('upgrade-ready'),1200)}
 function finance(){
  show(`<h2>8. 💰 Tài chính</h2><div class="cards">
  <div class="card">💵 Tiền mặt<br><b>${fmt(S.money)}</b></div>
@@ -323,4 +399,286 @@ setInterval(()=>{
    if(scenes[slot]!=='idle' && !S.busy && !S.cooking)routine(scenes[slot]);
  }
 },2000);
+/* ==================== V20: HÀI + TREND + ACTION ENGINE ==================== */
+S.v20 = { eventCooldown:0, eventCount:0, lastEvent:'', free:null, actionBusy:false, trendIndex:0, lastPartnerAction:0 };
+const V20_ORIG_SHOP = window.shop;
+const V20_ORIG_UPGRADE = window.upgrade;
+
+const V20_OBJECTS = {
+ kitchen:{label:'🍳 BẾP', spot:[31,47], action:'cook', jokes:['Hôm nay mình nấu ăn như đầu bếp 5 sao.','...5 sao Google Maps thì có.'], lv:['Bếp cơ bản','Bếp hiện đại','Bếp xịn']},
+ fridge:{label:'🧊 TỦ LẠNH', spot:[43,46], action:'fridge', jokes:['Mở tủ lạnh kiểm tra tài sản.','Còn trứng. Và một chút hy vọng.'], lv:['Tủ lạnh mini','Tủ lạnh 2 cửa','Tủ lạnh cao cấp']},
+ tv:{label:'📺 TIVI', spot:[72,42], action:'tv', jokes:['Xem một tập thôi nhé.','Một tập sau... trời sáng luôn.'], lv:['TV thường','Smart TV','TV màn hình lớn']},
+ sofa:{label:'🛋️ SOFA', spot:[61,60], action:'sofa', jokes:['Ngồi xuống 5 phút.','5 phút của người trưởng thành = 45 phút.'], lv:['Sofa thường','Sofa êm','Sofa VIP']},
+ table:{label:'🍚 BÀN ĂN', spot:[76,62], action:'table', jokes:['Bữa cơm gia đình bắt đầu.','Không có đồ ăn thì đây là bàn họp.'], lv:['Bàn gỗ','Bàn đẹp','Bàn cao cấp']},
+ bed:{label:'🛏️ GIƯỜNG', spot:[24,82], action:'bed', jokes:['Ngủ sớm hôm nay.','Kế hoạch thất bại sau 3 phút lướt điện thoại.'], lv:['Giường thường','Giường êm','Giường cao cấp']},
+ plant:{label:'🌿 CÂY CẢNH', spot:[12,73], action:'plant', jokes:['Cây vẫn sống.','Đúng là người duy nhất không đòi hỏi gì.']},
+ petarea:{label:'🐾 KHU THÚ CƯNG', spot:[85,76], action:'pet', jokes:['Boss đang chờ phục vụ.','Trong nhà này ai mới là chủ?']}
+};
+
+function v20Toast(t){toast(t);}
+function v20Say(text,who='girl',ms=2200){
+  say(text,who,ms);
+  const c=$(who); if(c) { c.dataset.actionText=text; }
+}
+function v20FX(e,x=50,y=50){fx(e,x,y);}
+
+function v20ObjectName(k){ return V20_OBJECTS[k]?.label || k; }
+function v20ObjectLevel(k){ return S.upgrades[k] || 1; }
+function v20ObjectCard(k){
+ const o=V20_OBJECTS[k], lv=v20ObjectLevel(k), names=o.lv||['Cơ bản','Hiện đại','Cao cấp'];
+ return `<div class="v20ObjectCard"><b>${o.label}</b><span> Cấp ${lv}</span><small>${names[lv-1]||names[names.length-1]}</small></div>`;
+}
+
+function v20Move(who,left,top,text){
+  return moveNPC(who,left,top,text);
+}
+
+async function v20DoObject(k){
+  if(S.scene!=='home') returnHomeScene();
+  if(S.v20.actionBusy) return toast('⏳ Đang làm việc, chờ một chút...');
+  S.v20.actionBusy=true;
+  const o=V20_OBJECTS[k];
+  const who=S.player==='boy'?'boy':'girl';
+  const other=S.partner;
+  try{
+    if(k==='kitchen'){
+      await v20Move(who,31,48,'Để mình vào bếp!');
+      v20FX('🔥',34,48); v20Say(o.jokes[0],who,1600);
+      setTimeout(()=>v20Say(o.jokes[1],other,1800),1200);
+      show(`<h2>🍳 ${S.player==='boy'?'Bếp của anh':'Bếp của em'}</h2><p class="card">${v20ObjectCard('kitchen')}</p><p>Đây là nơi duy nhất để bắt đầu nấu ăn.</p>${btn('🍜 Nấu mì','v20KitchenMenu()','pink')}${btn('🍳 Trứng rau','v20StartRecipe(1)','choice')}`);
+    } else if(k==='fridge'){
+      await v20Move(who,43,46,'Để xem tủ lạnh còn gì...');v20FX('🧊',45,43);
+      fridge();
+    } else if(k==='tv'){
+      await v20Move(who,63,56,'Bật TV nha.'); await v20Move(other,58,59,'Em ngồi đây.'); tvOn();
+      v20FX('📺',72,40); show(`<h2>📺 TIVI</h2><p class="card">${v20ObjectCard('tv')}</p>${btn('😂 Nhường remote','effect("happy",3);effect("love",2);hud();v20TrendLine("remote");','pink')}${btn('😤 Tranh remote','effect("anger",5);effect("trust",-2);hud();v20TrendLine("remoteFight")','choice')}${btn('📺 Xem tự do 1 phút','v20FreeActivity("tv")','green')}`);
+    } else if(k==='sofa'){
+      await v20Move(who,58,59,'Ngồi đây 5 phút thôi...');
+      v20FX('🛋️',60,58); show(`<h2>🛋️ SOFA</h2><p class="card">${v20ObjectCard('sofa')}</p>${btn('🧘 Ngồi thư giãn 1 phút','v20FreeActivity("sofa")','green')}${btn('💬 Tâm sự','v20CoupleTalk()','pink')}`);
+    } else if(k==='table'){
+      await v20Move(who,72,65,'Tới bàn ăn nào.');v20FX('🍚',75,62);
+      show(`<h2>🍚 BÀN ĂN</h2><p class="card">${v20ObjectCard('table')}</p>${btn('🥢 Ăn cùng nhau','eatMeal()','pink')}`);
+    } else if(k==='bed'){
+      await v20Move(who,25,82,'Mình ngủ sớm hôm nay...');v20FX('💤',25,76);
+      show(`<h2>🛏️ GIƯỜNG</h2><p class="card">${v20ObjectCard('bed')}</p>${btn('😴 Ngủ','sleep()','pink')}${btn('🛌 Nghỉ 1 phút','v20FreeActivity("bed")','green')}`);
+    } else if(k==='plant'){
+      await v20Move(who,12,73,'Cây ơi cố lên.');v20FX('🌱',13,68);effect('happy',1);hud();v20Say('Ít nhất cây không hỏi: bao giờ cưới?',other);toast('🌿 Cây được chăm sóc');
+    } else if(k==='petarea'){
+      await v20Move(who,82,75,'Boss ơi!');await petMove(74,72);v20FX('🐾',78,70);petMenu();
+    }
+  } finally { S.v20.actionBusy=false; }
+}
+
+function v20KitchenMenu(){
+  closeModal();
+  show(`<h2>🍳 BẾP — CHỌN MÓN</h2><p class="card">🧊 Tủ lạnh chỉ chứa nguyên liệu. Muốn nấu, phải đứng tại BẾP.</p>${btn('🍜 Mì trứng rau','v20StartRecipe(0)','pink')}${btn('🍳 Trứng rau','v20StartRecipe(1)','choice')}${btn('🥚 Trứng đơn giản','v20StartRecipe(2)','choice')}`);
+}
+function v20StartRecipe(i){
+  const recipes=[
+   {name:'🍜 Mì trứng rau',need:{noodle:1,egg:1,veg:1},steps:[['🔥 Làm nóng bếp',5],['💧 Đun nước',4],['🍜 Cho mì + trứng + rau',4],['🍽️ Bê ra bàn',3]]},
+   {name:'🍳 Trứng rau',need:{egg:2,veg:1},steps:[['🔥 Làm nóng bếp',5],['🍳 Chiên trứng',4],['🥬 Cho rau',3],['🍽️ Bê ra bàn',3]]},
+   {name:'🥚 Trứng đơn giản',need:{egg:1},steps:[['🔥 Làm nóng bếp',4],['🍳 Chiên trứng',4],['🍽️ Bê ra bàn',3]]}
+  ];
+  const r=recipes[i];
+  for(const k in r.need){if((S.inventory[k]||0)<r.need[k])return toast('🧊 Thiếu nguyên liệu — vào Cửa hàng mua thêm');}
+  for(const k in r.need)S.inventory[k]-=r.need[k];
+  S.cooking={recipe:r,step:0,remain:r.steps[0][1],deadline:0};
+  closeModal(); v20Say('Hôm nay nấu món này mà không cháy nhé.',S.player,1800); renderCookStep();
+}
+
+function v20CoupleTalk(){
+ closeModal();
+ const mood=S.anger>55?'😤':S.happy>75?'😂':S.energy<30?'🥱':'🙂';
+ const lines=S.anger>55?['Anh nói chuyện đàng hoàng coi.','Em bình tĩnh, anh đang nói mà 😅']:S.happy>75?['Hôm nay vui ghê 😂','Ừ, trừ lúc nhìn tài khoản ngân hàng.']:S.energy<30?['Buồn ngủ chưa?','Rồi. Nhưng điện thoại chưa cho phép.']:['Hôm nay ổn không?','Ổn, miễn đừng hỏi tiền.'];
+ v20Say(lines[0],S.partner,1700);setTimeout(()=>v20Say(lines[1],S.player,1700),900);
+ effect('love',2);effect('trust',1);effect('happy',2);hud();v20FX(mood,50,48);toast('💬 Một cuộc trò chuyện rất đời');
+}
+
+function v20FreeActivity(type){
+ closeModal();
+ if(S.v20.free){return toast('⏳ Bạn đang có hoạt động rồi');}
+ const labels={tv:'📺 Xem TV',sofa:'🛋️ Ngồi sofa',bed:'🛌 Nghỉ ngơi'};
+ const start=Date.now(); S.v20.free={type,start,end:start+60000}; S.busy=true;
+ const who=S.player==='boy'?'boy':'girl'; const other=S.partner;
+ if(type==='tv'){tvOn();v20Move(who,63,56,'Xem một chút thôi...');v20Move(other,58,59,'Ừ, xem đi.');}
+ else if(type==='sofa'){v20Move(who,58,59,'Ngồi nghỉ một lát...');}
+ else {v20Move(who,25,82,'Nằm một chút...');}
+ const layer=document.createElement('div');layer.id='v20Free';layer.innerHTML=`<div class="v20FreeTitle">${labels[type]}</div><div class="v20FreeBar"><i></i></div><div class="v20FreeTime">60s</div><button>✖ Kết thúc</button>`;$('world').appendChild(layer);
+ layer.querySelector('button').onclick=()=>v20EndFree('manual');
+ v20FreeTick();
+}
+function v20FreeTick(){
+ const f=S.v20.free, el=$('v20Free'); if(!f||!el)return;
+ const remain=Math.max(0,Math.ceil((f.end-Date.now())/1000)); const pct=Math.max(0,remain/60*100);
+ const bar=el.querySelector('i');if(bar)bar.style.width=pct+'%';const tm=el.querySelector('.v20FreeTime');if(tm)tm.textContent=remain+'s';
+ if(remain<=0){v20EndFree('done');return;} setTimeout(v20FreeTick,500);
+}
+function v20EndFree(reason){
+ const f=S.v20.free;if(!f)return;S.v20.free=null;S.busy=false;$('v20Free')?.remove();
+ effect('happy',3);effect('energy',reason==='done'?3:1);changeTime(reason==='done'?5:1);hud();toast(reason==='done'?'⏰ Một phút trôi qua — thời gian chạy tiếp!':'Hoạt động đã kết thúc');
+}
+
+const V20_TRENDS=[
+ ['💬','“Ăn gì cũng được”','Câu nói khiến người nghe phải tự chịu trách nhiệm với lựa chọn của mình.'],
+ ['🫠','“Ổn mà...”','Một câu nói rất bình thường. Cho đến khi nhìn chỉ số 😤.'],
+ ['📱','“5 phút thôi”','Năm phút sau: vẫn đang lướt.'],
+ ['💸','“Mua cái này có cần không?”','Không cần. Nhưng đã bấm thanh toán.'],
+ ['🧠','“Tôi có kế hoạch”','Kế hoạch: mở điện thoại.'],
+ ['😂','“Để mai tính”','Ngày mai cũng đang bận.'],
+ ['🫡','“Rồi rồi, anh biết rồi”','Một câu nói có nguy cơ mở khóa drama.']
+];
+function v20TrendLine(type){
+ const map={remote:['Anh nhường remote mà.','Thế em xem gì cũng được à?','Được. Nhưng anh đừng than.'],remoteFight:['Remote là vật vô tri. Tình cảm mới là thứ có vấn đề.']};
+ const arr=map[type]||['Cuộc sống đang loading...']; const line=arr[Math.floor(Math.random()*arr.length)];v20Say(line,S.partner,1900);toast('😂 Trend tình huống: '+line);
+}
+function v20Social(){
+ const p=V20_TRENDS[S.v20.trendIndex%V20_TRENDS.length];
+ show(`<h2>📸 MXH — TREND HÔM NAY</h2><div class="post v20TrendPost"><div class="trendTag">${p[0]} TREND</div><h3>${p[1]}</h3><p>${p[2]}</p><small>💬 1.2K bình luận · ❤️ ${120+S.v20.trendIndex*37}</small><hr><p>💬 Bình luận nổi bật:</p><div class="card">“Tôi chỉ vào xem một chút...”</div><div class="card">“Nghe quen không? 😭”</div></div>${btn('❤️ Thả tim','effect("happy",1);hud();toast("❤️ Đã thả tim")','pink')}${btn('💬 Bình luận','effect("love",1);hud();toast("💬 Bình luận của bạn đã lên")','choice')}${btn('➡️ Bài tiếp','S.v20.trendIndex++;v20Social()','btn')}`);
+}
+
+const V20_EVENTS=[
+ {id:'wifi',need:()=>S.scene==='home',title:'📶 WIFI DỞ CHỨNG',text:'Wi-Fi tự nhiên yếu đúng lúc cần nó nhất.',lines:['Không phải Wi-Fi yếu. Nó đang suy nghĩ.','Tắt mở modem đi... niềm tin vào công nghệ.'],fx:'📶'},
+ {id:'emptyfridge',need:()=>S.scene==='home'&&Object.values(S.inventory).reduce((a,b)=>a+b,0)<=5,title:'🧊 TỦ LẠNH TRỐNG',text:'Mở tủ lạnh và phát hiện hiện thực.',lines:['Còn gì ăn không?','Còn. Còn niềm hy vọng.'],fx:'🫠'},
+ {id:'money',need:()=>S.scene==='home'&&S.money<800000,title:'💸 TÀI KHOẢN CẢNH BÁO',text:'Số dư đang nhìn bạn bằng ánh mắt thất vọng.',lines:['Mình nghèo tạm thời thôi.','Tạm thời của anh kéo dài hơi lâu.'],fx:'💸'},
+ {id:'pet',need:()=>S.scene==='home'&&S.pet.hunger<30,title:'🐾 BOSS ĐÒI ĂN',text:'Thú cưng nhìn bạn. Bạn nhìn thú cưng. Cả hai đều hiểu.',lines:['Boss đang đói.','Boss có quyền biểu tình.'],fx:'🐾'},
+ {id:'lazy',need:()=>S.scene==='home'&&S.energy<25,title:'🥱 HẾT PIN CON NGƯỜI',text:'Năng lượng thấp nhưng điện thoại vẫn 100%.',lines:['Đi ngủ đi.','Lát nữa.'],fx:'🥱'}
+];
+function v20RandomEvent(){
+ if(S.v20.eventCooldown>0){S.v20.eventCooldown--;return;}
+ if(S.scene!=='home'||S.v20.free||S.v20.actionBusy)return;
+ if(Math.random()>0.18)return;
+ const available=V20_EVENTS.filter(e=>e.need());if(!available.length)return;
+ const e=available[Math.floor(Math.random()*available.length)];S.v20.eventCooldown=4;S.v20.eventCount++;S.v20.lastEvent=e.id;
+ const who=S.partner;v20FX(e.fx,50,42);v20Say(e.lines[0],who,1700);setTimeout(()=>v20Say(e.lines[1],S.player,1700),900);toast(e.title+' — '+e.text);
+}
+
+const V20_ROUTINES=[
+ {type:'kitchen',at:[31,48],say:'Để anh/em xem bếp hôm nay có ổn không.'},
+ {type:'tv',at:[63,56],say:'Xem một chút thôi nha.'},
+ {type:'table',at:[72,65],say:'Tới bàn xem có gì ăn nào.'},
+ {type:'petarea',at:[82,75],say:'Boss ơi, lại đây.'},
+ {type:'sofa',at:[58,59],say:'Ngồi nghỉ một lát.'}
+];
+async function v20PartnerRoutine(){
+ if(S.scene!=='home'||S.v20.free||S.v20.actionBusy||S.cooking)return;
+ if(S.h>=7&&S.h<11){return;} // đi làm buổi sáng
+ if(S.h>=14&&S.h<17){return;}
+ if(Math.random()>0.48)return;
+ const r=V20_ROUTINES[Math.floor(Math.random()*V20_ROUTINES.length)];
+ const who=S.partner; S.v20.actionBusy=true;
+ try{
+   await v20Move(who,r.at[0],r.at[1],r.say);
+   if(r.type==='tv'){tvOn();v20FX('📺',70,40);}
+   if(r.type==='kitchen'){v20FX('🍳',32,46);}
+   if(r.type==='table'){v20FX('🍚',73,62);}
+   if(r.type==='petarea'){await petMove(74,72);v20FX('🐾',78,70);}
+   if(r.type==='sofa'){v20FX('🛋️',60,57);}
+ } finally {S.v20.actionBusy=false;}
+}
+
+function v20Chore(k,who){
+ closeModal(); if(S.scene!=='home')returnHomeScene(); if(S.chores[k])return toast('☑️ Việc này đã xong');
+ const pos={dish:[68,61],laundry:[78,75],trash:[15,62],floor:[55,72]}[k]; const action={dish:'🍽️',laundry:'👕',trash:'🗑️',floor:'🧹'}[k];
+ S.busy=true; moveNPC(who,pos[0],pos[1],action+' Bắt đầu làm nhé!').then(()=>{
+   v20FX(action,pos[0],pos[1]);
+   let n=3; const iv=setInterval(()=>{v20FX(action,pos[0]+Math.random()*4-2,pos[1]+Math.random()*4-2);n--;if(n<=0){clearInterval(iv);S.chores[k]=true;S.clean=clamp(S.clean+5);effect('happy',2);effect('anger',-2);changeTime(8);S.busy=false;hud();toast('✅ Đã hoàn thành: '+action);chores();}},500);
+ });
+}
+
+function v20RebuildHotspots(){
+ const hs=$('hotspots'); if(!hs)return; hs.innerHTML='';
+ const add=(x,y,w,h,fn)=>hit(x,y,w,h,fn);
+ add(5,90,112,112,()=>v20DoObject('kitchen'));
+ add(110,90,82,112,()=>v20DoObject('fridge'));
+ add(204,62,126,105,()=>v20DoObject('tv'));
+ add(204,105,126,105,()=>v20DoObject('sofa'));
+ add(200,218,160,132,()=>v20DoObject('table'));
+ add(1,371,177,109,()=>v20DoObject('bed'));
+ add(1,260,100,130,()=>v20DoObject('plant'));
+ add(250,360,75,80,()=>v20DoObject('petarea'));
+ // Không còn mục “11. Sống cùng nhau” đè lên đồ vật.
+}
+
+function v20RefreshLabels(){
+ decorateHomeObjects();
+ document.querySelectorAll('#room .asset').forEach((e,i)=>{if(e.dataset.object){e.title=e.dataset.objectName||'';}});
+}
+
+function v20Upgrade(k){
+ const d=upgradeData[k],lv=S.upgrades[k],cost=d.cost[lv];
+ if(lv>=d.max)return toast('⭐ Đã tối đa');
+ if(S.money<cost)return toast('💸 Chưa đủ tiền — đi làm thêm nhé');
+ S.money-=cost;S.upgrades[k]++;effect(d.stat,4);effect('finance',-2);hud();visualUpgrade(k);v20FX('✨',55,55);toast(`${d.name} cấp ${S.upgrades[k]} — ngoại hình đã thay tại đúng vị trí!`);setTimeout(()=>v20RefreshLabels(),50);V20_ORIG_SHOP();
+}
+
+function v20Shop(){
+ V20_ORIG_SHOP();
+ setTimeout(()=>{
+   const sheet=$('sheet'); if(!sheet)return;
+   sheet.insertAdjacentHTML('afterbegin',`<div class="v20ShopBanner"><b>🏠 ĐỒ VẬT CỐ ĐỊNH</b><br><small>Mua/nâng cấp chỉ thay ngoại hình tại đúng vị trí — NPC không bị mất điểm tương tác.</small></div>`);
+ },0);
+}
+
+function v20Install(){
+ document.title='YÊU NHAU CÓ GÌ VUI? — V20';
+ // thay các function chính bằng bản V20
+ window.shop=v20Shop; window.upgrade=v20Upgrade; window.social=v20Social;
+ // Chores được thay bằng hành động có animation thật
+ window.chores=function(){const list=[['dish','🍽️ Rửa bát','girl'],['laundry','👕 Giặt quần áo','boy'],['trash','🗑️ Đổ rác','girl'],['floor','🧹 Lau nhà','boy']];show('<h2>🧹 VIỆC NHÀ</h2><p class="card">NPC sẽ đi tới đúng vị trí rồi thực hiện hành động.</p>'+list.map(([k,x,w])=>`<button class="choice" onclick="v20Chore('${k}','${w}')">${S.chores[k]?'☑️':'☐'} ${x}</button>`).join('')+'<p class="card">Độ sạch nhà: '+S.clean+'%</p>')};
+ // routine mới, vẫn tương thích với các hệ thống cũ
+ window.routine=async function(scene='idle'){
+   if(S.scene!=='home'||S.v20.free||S.v20.actionBusy)return;
+   if(scene==='cook'){return v20Move(S.partner,31,48,'Để anh/em xem bếp một chút.').then(()=>v20FX('🍳',32,46));}
+   if(scene==='tv'){return Promise.all([v20Move(S.partner,63,56,'Xem TV một chút nha.'),v20Move(S.player,58,59,'Ừ, xem đi.')]).then(()=>{tvOn();v20FX('📺',70,40);});}
+   if(scene==='table'){return v20Move(S.partner,72,65,'Tới bàn xem có gì ăn nào.').then(()=>v20FX('🍚',73,62));}
+   if(scene==='bed')return v20DoObject('bed');
+   if(scene==='fight'){await v20Move('girl',65,51,'Anh giải thích đi! 😤');await v20Move('boy',33,51,'Khoan... khoan...');return;}
+   return v20PartnerRoutine();
+ };
+ // Rebuild interaction layer after original init has run.
+ v20RebuildHotspots();v20RefreshLabels();
+ // Remove old live action remnants if any are visible.
+ document.querySelectorAll('.hot').forEach(b=>b.setAttribute('aria-label','Tương tác đồ vật'));
+ // extra trend button on phone via delegation
+ const oldPhone=window.phone; window.phone=function(){oldPhone();setTimeout(()=>{const s=$('sheet');if(s)s.insertAdjacentHTML('beforeend',btn('🔥 Trend hôm nay','v20Social()','choice'));},0)};
+ // Ensure partner AI and events tick independently.
+ setInterval(()=>v20RandomEvent(),5000);
+ setInterval(()=>{if(S.scene==='home'&&!S.v20.free&&!S.v20.actionBusy)v20PartnerRoutine()},11000);
+ toast('✨ V20 đã sẵn sàng — đồ vật, hành động, AI, trend và sự kiện hoạt động');
+}
+
+v20Install();
+
+
+/* V20 cooking/fridge safety overrides */
+function v20Fridge(){
+  show(`<h2>🧊 TỦ LẠNH</h2><p class="card">Tủ lạnh chỉ dùng để xem kho. Muốn mua đồ → CỬA HÀNG. Muốn nấu → BẾP.</p><div class="cards">${[['rice','🍚 Gạo'],['veg','🥬 Rau'],['fish','🐟 Cá'],['meat','🥩 Thịt'],['shrimp','🦐 Tôm'],['egg','🥚 Trứng'],['noodle','🍜 Mì']].map(x=>`<div class="card">${x[1]}<br><b>${S.inventory[x[0]]}</b></div>`).join('')}</div>${btn('🛒 Mở Cửa hàng','V20_ORIG_SHOP()','gold')}${btn('🍳 Đi tới Bếp','v20DoObject("kitchen")','pink')}`);
+}
+function v20RenderCookStep(){
+ const c=S.cooking;if(!c)return;const step=c.recipe.steps[c.step];
+ show(`<h2>🍳 ${c.recipe.name}</h2><p><b>${step[0]}</b></p><div class="taskbar"><i id="cookbar" style="width:100%"></i></div><p>Còn <b id="cooktime">${step[1]}</b> giây</p><p class="card">NPC vẫn có thể tự hoạt động quanh nhà trong lúc bếp chạy.</p><button class="btn pink" id="cookWait">⏳ Bắt đầu bước</button>`);
+ $('cookWait').onclick=()=>v20RunCookTimer();
+}
+function v20RunCookTimer(){
+ const c=S.cooking;if(!c)return;const step=c.recipe.steps[c.step];let remain=step[1];const b=$('cookWait');if(b)b.disabled=true;
+ const iv=setInterval(()=>{remain--;if($('cooktime'))$('cooktime').textContent=remain;if($('cookbar'))$('cookbar').style.width=(remain/step[1]*100)+'%';if(remain<=0){clearInterval(iv);v20FinishCookStep()}},1000);
+}
+function v20FinishCookStep(){
+ const c=S.cooking;if(!c)return;c.step++;
+ if(c.step>=c.recipe.steps.length){
+   S.cooking=null;effect('love',4);effect('happy',4);effect('trust',2);changeTime(2);hud();
+   v20Move(S.player,72,65,'Món xong rồi, bê ra bàn thôi.').then(()=>{v20FX('🍽️',74,62);show(`<h2>🍽️ ${c.recipe.name} hoàn thành!</h2><div class="card">Không có “cháy nhà, reset game”. Món ăn hoàn thành bình thường 😎</div>${btn('🥢 Ăn cùng nhau','eatMeal()','pink')}`)});
+   return;
+ }
+ v20RenderCookStep();
+}
+function v20InstallCooking(){
+ window.fridge=v20Fridge;
+ window.cook=()=>v20DoObject('kitchen');
+ window.renderCookStep=v20RenderCookStep;
+ window.runCookTimer=v20RunCookTimer;
+ window.finishCookStep=v20FinishCookStep;
+}
+v20InstallCooking();
+
 </script></body></html>
